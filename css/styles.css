@@ -1,5 +1,5 @@
 /* ============================================================
-   ФОРМА — мебель на заказ
+   FAM — family furniture
    Приём: страница печатного каталога мастерской.
    Бумага, чернила, киноварь. Прямые углы, линии вместо теней,
    моноширинный шрифт для служебных подписей и размеров.
@@ -87,7 +87,7 @@ p:last-child{margin-bottom:0}
 .head{height:var(--head-h);display:flex;align-items:center;gap:32px}
 
 .logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.logo__name{font-size:22px;font-weight:800;letter-spacing:.02em;line-height:1}
+.logo__name{font-size:23px;font-weight:800;letter-spacing:.09em;line-height:1}
 .logo__sub{
   font-family:var(--mono);font-size:9.5px;line-height:1.25;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-50);padding-left:12px;border-left:1px solid var(--rule);

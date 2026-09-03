@@ -313,7 +313,7 @@ function sheet(scene, toneIdx, variant, code) {
       ln(0, H, W, H, { sw: 1.4, op: .4 }) +
       ln(W - 470, H, W - 470, H + FOOT, { sw: 1.2, op: .25 }) +
       ln(W - 200, H, W - 200, H + FOOT, { sw: 1.2, op: .25 }) +
-      txt(34, H + 38, 'ФОРМА · МЕБЕЛЬ НА ЗАКАЗ · ЭСКИЗ ПЕРЕД ЗАМЕРОМ', { size: 17, op: .55 }) +
+      txt(34, H + 38, 'FAM · FAMILY FURNITURE · ЭСКИЗ ПЕРЕД ЗАМЕРОМ', { size: 17, op: .55 }) +
       txt(W - 440, H + 38, code, { size: 17, op: .55 }) +
       txt(W - 170, H + 38, 'М 1:20', { size: 17, op: .55 });
   } else if (variant === 2) {                // предмет в интерьере, без размеров
