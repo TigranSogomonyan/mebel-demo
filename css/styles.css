@@ -84,6 +84,9 @@ p:last-child{margin-bottom:0}
   background:var(--paper);border-bottom:1px solid transparent;transition:border-color .2s;
 }
 .header.is-stuck{border-bottom-color:var(--rule)}
+/* шапка тянется во всю ширину экрана: на широких мониторах логотип и кнопка
+   стоят по краям, а не по общей сетке в 1440px */
+.header .head{max-width:none}
 .head{height:var(--head-h);display:flex;align-items:center;gap:32px}
 
 .logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
