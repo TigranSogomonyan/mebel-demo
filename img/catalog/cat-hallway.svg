@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img">
+  <defs>
+    <pattern id="mm" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#17150F" stroke-width="0.6" opacity="0.07"/>
+    </pattern>
+    <pattern id="mm5" width="200" height="200" patternUnits="userSpaceOnUse">
+      <path d="M200 0H0V200" fill="none" stroke="#17150F" stroke-width="0.9" opacity="0.11"/>
+    </pattern></defs>
+  <rect width="1200" height="900" fill="#EFEDE6"/>
+  <rect width="1200" height="900" fill="url(#mm)"/>
+  <rect width="1200" height="900" fill="url(#mm5)"/>
+  <rect x="0" y="0" width="1200" height="900" fill="#C6BEB4" opacity="0.16"/><rect x="0" y="804" width="1200" height="96" fill="#827669" opacity="0.28"/><line x1="0" y1="804" x2="1200" y2="804" stroke="#17150F" stroke-width="2" opacity="0.5"/><rect x="190" y="140" width="300" height="420" fill="#827669" stroke="#17150F" stroke-width="2" opacity="0.45"/><line x1="190" y1="140" x2="490" y2="560" stroke="#17150F" stroke-width="1" opacity="0.3"/><line x1="490" y1="140" x2="190" y2="560" stroke="#17150F" stroke-width="1" opacity="0.3"/><rect x="540" y="130" width="460" height="300" fill="#C6BEB4" stroke="#17150F" stroke-width="2"/><line x1="580" y1="180" x2="580" y2="250" stroke="#17150F" stroke-width="4" opacity="0.6"/><line x1="690" y1="180" x2="690" y2="250" stroke="#17150F" stroke-width="4" opacity="0.6"/><line x1="800" y1="180" x2="800" y2="250" stroke="#17150F" stroke-width="4" opacity="0.6"/><line x1="910" y1="180" x2="910" y2="250" stroke="#17150F" stroke-width="4" opacity="0.6"/><rect x="540" y="560" width="460" height="180" fill="#C6BEB4" stroke="#17150F" stroke-width="2"/><line x1="770" y1="560" x2="770" y2="740" stroke="#17150F" stroke-width="1.5"/><line x1="600" y1="730" x2="690" y2="730" stroke="#17150F" stroke-width="4" opacity="0.55"/><line x1="830" y1="730" x2="920" y2="730" stroke="#17150F" stroke-width="4" opacity="0.55"/><rect x="190" y="620" width="300" height="120" fill="#A79C90" stroke="#17150F" stroke-width="2"/><line x1="240" y1="690" x2="440" y2="690" stroke="#17150F" stroke-width="4" opacity="0.55"/><rect x="190" y="740" width="810" height="18" fill="#827669" stroke="#17150F" stroke-width="2"/>
+  
+  
+</svg>

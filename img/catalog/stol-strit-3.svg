@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 962" width="1200" height="962" role="img">
+  <defs>
+    <pattern id="mm" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#17150F" stroke-width="0.6" opacity="0.07"/>
+    </pattern>
+    <pattern id="mm5" width="200" height="200" patternUnits="userSpaceOnUse">
+      <path d="M200 0H0V200" fill="none" stroke="#17150F" stroke-width="0.9" opacity="0.11"/>
+    </pattern></defs>
+  <rect width="1200" height="962" fill="#EFEDE6"/>
+  <rect width="1200" height="900" fill="url(#mm)"/>
+  <rect width="1200" height="900" fill="url(#mm5)"/>
+  <g transform="translate(-336.00000000000006, -198) scale(1.62)"><rect x="280" y="380" width="640" height="30" fill="#8E8471" stroke="#17150F" stroke-width="2"/><line x1="340" y1="410" x2="340" y2="760" stroke="#17150F" stroke-width="7"/><line x1="860" y1="410" x2="860" y2="760" stroke="#17150F" stroke-width="7"/><line x1="300" y1="760" x2="380" y2="760" stroke="#17150F" stroke-width="7"/><line x1="820" y1="760" x2="900" y2="760" stroke="#17150F" stroke-width="7"/><line x1="340" y1="500" x2="860" y2="500" stroke="#17150F" stroke-width="5"/><rect x="360" y="420" width="200" height="60" fill="#C7BCA6" stroke="#17150F" stroke-width="2" opacity="0.6"/><rect x="480" y="240" width="280" height="140" fill="#AC9F86" stroke="#17150F" stroke-width="2"/><line x1="600" y1="380" x2="600" y2="400" stroke="#17150F" stroke-width="3"/><line x1="540" y1="400" x2="660" y2="400" stroke="#17150F" stroke-width="3"/><line x1="380" y1="355" x2="470" y2="355" stroke="#17150F" stroke-width="3" opacity="0.5"/><circle cx="760" cy="350" r="22" fill="none" stroke="#17150F" stroke-width="2" opacity="0.6"/><text x="940" y="470" font-family="'JetBrains Mono','IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="18" fill="#17150F" opacity="0.45" letter-spacing="1">680—1180</text></g>
+  <rect x="0" y="900" width="1200" height="62" fill="#EFEDE6"/><line x1="0" y1="900" x2="1200" y2="900" stroke="#17150F" stroke-width="1.4" opacity="0.4"/><text x="34" y="938" font-family="'JetBrains Mono','IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="17" fill="#17150F" opacity="0.5" letter-spacing="1">ФРАГМЕНТ · КБ-02</text>
+  
+</svg>

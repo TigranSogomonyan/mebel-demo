@@ -1,0 +1,10 @@
+# сборки
+dist/
+dist-single.html
+
+# секреты
+.cf-token
+.env
+
+# мусор macOS
+.DS_Store

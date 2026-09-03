@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 962" width="1200" height="962" role="img">
+  <defs>
+    <pattern id="mm" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#17150F" stroke-width="0.6" opacity="0.07"/>
+    </pattern>
+    <pattern id="mm5" width="200" height="200" patternUnits="userSpaceOnUse">
+      <path d="M200 0H0V200" fill="none" stroke="#17150F" stroke-width="0.9" opacity="0.11"/>
+    </pattern></defs>
+  <rect width="1200" height="962" fill="#EFEDE6"/>
+  <rect width="1200" height="900" fill="url(#mm)"/>
+  <rect width="1200" height="900" fill="url(#mm5)"/>
+  <g transform="translate(-336.00000000000006, -198) scale(1.62)"><rect x="180" y="420" width="840" height="120" fill="#BDAE9A" stroke="#17150F" stroke-width="2"/><line x1="460" y1="420" x2="460" y2="540" stroke="#17150F" stroke-width="1.5"/><line x1="740" y1="420" x2="740" y2="540" stroke="#17150F" stroke-width="1.5"/><line x1="250" y1="530" x2="370" y2="530" stroke="#17150F" stroke-width="4" opacity="0.55"/><line x1="530" y1="530" x2="650" y2="530" stroke="#17150F" stroke-width="4" opacity="0.55"/><line x1="810" y1="530" x2="930" y2="530" stroke="#17150F" stroke-width="4" opacity="0.55"/><line x1="180" y1="480" x2="1020" y2="480" stroke="#17150F" stroke-width="1.5" stroke-dasharray="10 8" opacity="0.35"/><rect x="400" y="180" width="400" height="200" fill="#776853" stroke="#17150F" stroke-width="2" opacity="0.4"/><line x1="600" y1="380" x2="600" y2="420" stroke="#17150F" stroke-width="2" stroke-dasharray="6 6"/><line x1="180" y1="620" x2="1020" y2="620" stroke="#17150F" stroke-width="1" stroke-dasharray="12 9" opacity="0.3"/></g>
+  <rect x="0" y="900" width="1200" height="62" fill="#EFEDE6"/><line x1="0" y1="900" x2="1200" y2="900" stroke="#17150F" stroke-width="1.4" opacity="0.4"/><text x="34" y="938" font-family="'JetBrains Mono','IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="17" fill="#17150F" opacity="0.5" letter-spacing="1">ФРАГМЕНТ · ГС-02</text>
+  
+</svg>

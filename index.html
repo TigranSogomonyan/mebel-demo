@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ФОРМА — мебель на заказ. Примеры работ</title>
+<meta name="description" content="Салон мебели на заказ «ФОРМА»: кухни, гардеробные, гостиные, спальни, детские, мягкая мебель. Примеры выполненных работ, материалы и фурнитура. Бесплатный замер и расчёт.">
+<meta name="theme-color" content="#17150F">
+<meta property="og:title" content="ФОРМА — мебель на заказ">
+<meta property="og:description" content="Примеры работ, материалы, фурнитура. Замер и расчёт бесплатно.">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/ui/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#catalog">Перейти к каталогу</a>
+
+<!-- ————— ШАПКА ————— -->
+<header class="header" id="header">
+  <div class="shell head">
+    <a href="#top" class="logo" aria-label="ФОРМА — на главную">
+      <span class="logo__name">ФОРМА</span>
+      <span class="logo__sub">мебель<br>на заказ</span>
+    </a>
+
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#categories" class="nav__link"><i>01</i>Направления</a>
+      <a href="#catalog" class="nav__link"><i>02</i>Работы</a>
+      <a href="#how" class="nav__link"><i>04</i>Процесс</a>
+      <a href="#materials" class="nav__link"><i>05</i>Материалы</a>
+      <a href="#reviews" class="nav__link"><i>06</i>Отзывы</a>
+      <a href="#contacts" class="nav__link"><i>07</i>Контакты</a>
+    </nav>
+
+    <div class="head__side">
+      <a class="head__tel" href="tel:+70000000000">+7 (000) 000-00-00</a>
+      <a class="btn btn--solid js-popup" href="#popup:order" data-form-topic="Заявка на бесплатный замер">Замер бесплатно</a>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="sidemenu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ————— БОКОВОЕ МЕНЮ ————— -->
+<div class="sidemenu" id="sidemenu" hidden>
+  <div class="sidemenu__backdrop" data-close-menu></div>
+  <aside class="sidemenu__panel" role="dialog" aria-modal="true" aria-label="Меню">
+    <div class="sidemenu__top">
+      <span class="mono-label">Меню</span>
+      <button class="sidemenu__close" data-close-menu aria-label="Закрыть меню">Закрыть ✕</button>
+    </div>
+    <nav class="sidemenu__nav">
+      <a href="#categories"><i>01</i>Направления</a>
+      <a href="#catalog"><i>02</i>Примеры работ</a>
+      <a href="#why"><i>03</i>Почему нам доверяют</a>
+      <a href="#how"><i>04</i>Как мы работаем</a>
+      <a href="#materials"><i>05</i>Материалы</a>
+      <a href="#reviews"><i>06</i>Отзывы</a>
+      <a href="#contacts"><i>07</i>Контакты</a>
+    </nav>
+    <div class="sidemenu__foot">
+      <a class="btn btn--solid btn--block js-popup" href="#popup:order" data-form-topic="Заявка на бесплатный замер">Замер бесплатно</a>
+      <a class="sidemenu__tel" href="tel:+70000000000">+7 (000) 000-00-00</a>
+      <span class="mono-label">Ежедневно 10:00 — 21:00</span>
+    </div>
+  </aside>
+</div>
+
+<main id="top">
+
+<!-- ————— ГЛАВНЫЙ ЭКРАН ————— -->
+<section class="hero">
+  <div class="hero__rules" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="shell hero__in">
+    <div class="hero__text">
+      <p class="mono-label hero__label">Салон и производство · с 2011 года</p>
+      <h1 class="hero__title">Мебель,<br>которая собирается<br>вокруг вас</h1>
+      <p class="hero__lead">Здесь — примеры выполненных проектов: планировки, материалы, фурнитура и сроки. Стоимость считаем индивидуально после замера, потому что двух одинаковых квартир не бывает.</p>
+      <div class="hero__cta">
+        <a href="#catalog" class="btn btn--solid">Смотреть примеры работ</a>
+        <a href="#popup:order" class="btn btn--line js-popup" data-form-topic="Заявка на бесплатный замер">Записаться на замер</a>
+      </div>
+    </div>
+    <figure class="hero__sheet">
+      <img src="img/catalog/kuhnya-nord-1.svg" alt="Эскиз кухни на заказ с размерами" width="1200" height="962">
+      <figcaption class="mono-label">Кухня «Норд» · КХ-01 · эскиз перед замером</figcaption>
+    </figure>
+  </div>
+  <div class="hero__strip">
+    <div class="shell hero__facts">
+      <span><b>14</b> лет с мебелью</span>
+      <span><b>2 400</b> сданных проектов</span>
+      <span><b>5 лет</b> гарантия на корпус</span>
+      <span class="hero__facts-note">Цены не публикуем: считаем по проекту после замера</span>
+    </div>
+  </div>
+</section>
+
+<!-- ————— 01 НАПРАВЛЕНИЯ ————— -->
+<section class="section" id="categories">
+  <div class="shell">
+    <header class="head-line">
+      <span class="mono-label">01 / Что делаем</span>
+      <h2 class="h2">Направления</h2>
+      <p class="head-line__note">Выберите категорию — покажем примеры работ из неё.</p>
+    </header>
+    <div class="dirs">
+      <ol class="dirs__list" id="catsGrid"></ol>
+      <div class="dirs__preview" aria-hidden="true">
+        <img id="dirsPreview" src="img/catalog/cat-kitchen.svg" alt="" width="1200" height="900">
+        <span class="mono-label" id="dirsPreviewCap">Кухни</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————— 02 КАТАЛОГ ————— -->
+<section class="section section--pad" id="catalog">
+  <div class="shell">
+    <header class="head-line head-line--split">
+      <div>
+        <span class="mono-label">02 / Портфолио</span>
+        <h2 class="h2">Примеры работ</h2>
+      </div>
+      <p class="head-line__note head-line__note--wide">Каждый проект сделан по индивидуальным размерам. Нажмите на работу — внутри состав, материалы, фурнитура и сроки. Цен нет: они зависят от размеров, наполнения и отделки.</p>
+    </header>
+
+    <div class="filters" id="filters" role="tablist" aria-label="Фильтр по категориям"></div>
+
+    <div class="works" id="grid" aria-live="polite"></div>
+
+    <p class="works__empty" id="gridEmpty" hidden>В этой категории пока нет примеров. Напишите нам — покажем проекты из архива.</p>
+
+    <div class="works__more">
+      <button class="btn btn--line" id="moreBtn" type="button">Показать ещё</button>
+    </div>
+  </div>
+</section>
+
+<!-- ————— 03 ПОЧЕМУ ————— -->
+<section class="section" id="why">
+  <div class="shell">
+    <header class="head-line">
+      <span class="mono-label">03 / Почему нам доверяют</span>
+      <h2 class="h2">Шесть причин</h2>
+    </header>
+    <div class="reasons">
+      <article class="reason">
+        <span class="reason__n">01</span>
+        <h3>Своё производство</h3>
+        <p>Цех 1 200 м² с ЧПУ-раскроем и кромочным центром. Не перепродаём чужую сборку — отвечаем за каждый шов.</p>
+      </article>
+      <article class="reason">
+        <span class="reason__n">02</span>
+        <h3>Замер и проект бесплатно</h3>
+        <p>Дизайнер приезжает с образцами, снимает размеры и готовит 3D-визуализацию до подписания договора.</p>
+      </article>
+      <article class="reason">
+        <span class="reason__n">03</span>
+        <h3>Фурнитура Blum и Hettich</h3>
+        <p>Направляющие, подъёмники и доводчики только оригинальные, с заводской гарантией производителя.</p>
+      </article>
+      <article class="reason">
+        <span class="reason__n">04</span>
+        <h3>Материалы класса E1</h3>
+        <p>Плиты Egger и Kronospan с низкой эмиссией формальдегида — безопасны для детских комнат.</p>
+      </article>
+      <article class="reason">
+        <span class="reason__n">05</span>
+        <h3>Фиксированная смета</h3>
+        <p>После замера стоимость закрепляется в договоре. Доплат «за угол» и «за нестандарт» по ходу работы не появляется.</p>
+      </article>
+      <article class="reason">
+        <span class="reason__n">06</span>
+        <h3>Сервис после сдачи</h3>
+        <p>Гарантия 5 лет на корпус и 2 года на фурнитуру. Регулировку петель и доводчиков делаем бесплатно.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ————— 04 ПРОЦЕСС ————— -->
+<section class="section section--dark" id="how">
+  <div class="shell">
+    <header class="head-line head-line--split">
+      <div>
+        <span class="mono-label">04 / Процесс</span>
+        <h2 class="h2">Как мы работаем</h2>
+      </div>
+      <p class="head-line__note head-line__note--wide">Пять шагов от первого звонка до собранной мебели.</p>
+    </header>
+    <ol class="steps">
+      <li class="step"><span class="step__n">1</span><h3>Заявка</h3><p>Обсуждаем задачу, показываем похожие проекты, договариваемся о времени замера.</p></li>
+      <li class="step"><span class="step__n">2</span><h3>Замер и проект</h3><p>Дизайнер приезжает с образцами материалов, снимает размеры, готовит планировку и 3D.</p></li>
+      <li class="step"><span class="step__n">3</span><h3>Смета и договор</h3><p>Считаем стоимость по итоговому проекту и фиксируем её. Аванс — 50%.</p></li>
+      <li class="step"><span class="step__n">4</span><h3>Производство</h3><p>15–45 рабочих дней в зависимости от материалов. Присылаем фото по этапам.</p></li>
+      <li class="step"><span class="step__n">5</span><h3>Доставка и сборка</h3><p>Привозим, собираем, подключаем технику, увозим упаковку. Подписываем акт.</p></li>
+    </ol>
+    <div class="plan-cta">
+      <p>Не знаете, поместится ли гарнитур? Пришлите план квартиры — скажем сразу.</p>
+      <a class="btn btn--invert js-popup" href="#popup:plan" data-form-topic="Оценка по плану квартиры">Отправить план</a>
+    </div>
+  </div>
+</section>
+
+<!-- ————— 05 МАТЕРИАЛЫ ————— -->
+<section class="section" id="materials">
+  <div class="shell">
+    <header class="head-line head-line--split">
+      <div>
+        <span class="mono-label">05 / Из чего делаем</span>
+        <h2 class="h2">Материалы и фурнитура</h2>
+      </div>
+      <p class="head-line__note head-line__note--wide">Образцы можно посмотреть и потрогать в салоне — или заказать выезд дизайнера с чемоданом образцов.</p>
+    </header>
+    <div class="swatches">
+      <button class="swatch js-popup" data-popup="popup:mat-ldsp" type="button">
+        <span class="swatch__chip" style="--c1:#C7BCA6;--c2:#8E8471"></span>
+        <span class="swatch__name">ЛДСП</span>
+        <span class="swatch__note">Egger, Kronospan · 16 и 18 мм</span>
+      </button>
+      <button class="swatch js-popup" data-popup="popup:mat-mdf" type="button">
+        <span class="swatch__chip" style="--c1:#E6E1D5;--c2:#BDB4A2"></span>
+        <span class="swatch__name">МДФ в эмали</span>
+        <span class="swatch__note">Матовая, глянец, софт-тач</span>
+      </button>
+      <button class="swatch js-popup" data-popup="popup:mat-shpon" type="button">
+        <span class="swatch__chip" style="--c1:#B08356;--c2:#6E4C2C"></span>
+        <span class="swatch__name">Шпон и массив</span>
+        <span class="swatch__note">Дуб, ясень, орех</span>
+      </button>
+      <button class="swatch js-popup" data-popup="popup:mat-stone" type="button">
+        <span class="swatch__chip" style="--c1:#DEDAD2;--c2:#8F8B84"></span>
+        <span class="swatch__name">Столешницы</span>
+        <span class="swatch__note">Камень, кварц, HPL, массив</span>
+      </button>
+      <button class="swatch js-popup" data-popup="popup:mat-blum" type="button">
+        <span class="swatch__chip" style="--c1:#C3C7C4;--c2:#7C837E"></span>
+        <span class="swatch__name">Фурнитура</span>
+        <span class="swatch__note">Blum, Hettich, Aristo</span>
+      </button>
+      <button class="swatch js-popup" data-popup="popup:mat-light" type="button">
+        <span class="swatch__chip" style="--c1:#EBDCB4;--c2:#B9923F"></span>
+        <span class="swatch__name">Подсветка</span>
+        <span class="swatch__note">LED-профиль, датчики, диммеры</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ————— 06 ОТЗЫВЫ ————— -->
+<section class="section section--tint" id="reviews">
+  <div class="shell">
+    <header class="head-line">
+      <span class="mono-label">06 / Клиенты</span>
+      <h2 class="h2">Отзывы</h2>
+    </header>
+    <div class="slider" id="reviewsSlider">
+      <div class="slider__viewport">
+        <div class="slider__track" id="reviewsTrack">
+          <article class="review"><p>«Кухню ставили в новостройку со скошенной стеной. Дизайнер сразу предложил решение с угловым модулем — визуально этого перекоса вообще не видно. Сроки сдвинулись на три дня, предупредили заранее.»</p><footer><b>Анна К.</b><span>кухня «Норд», ЖК «Ривер Парк»</span></footer></article>
+          <article class="review"><p>«Заказывали гардеробную и прихожую. Понравилось, что не было навязывания: попросили уложиться в бюджет — переиграли наполнение, а не качество плиты. Через год ящики ходят как в первый день.»</p><footer><b>Дмитрий и Ольга</b><span>гардеробная + прихожая</span></footer></article>
+          <article class="review"><p>«Детскую делали для двоих. Отдельно отмечу скруглённые кромки и ограничители на ящиках — младший уже проверил их на прочность. Сборщики застелили пол и всё убрали за собой.»</p><footer><b>Марина С.</b><span>детская «Хома»</span></footer></article>
+          <article class="review"><p>«Приятно, что цену назвали только после замера и больше не меняли. В смете было расписано всё до петли, сравнивал с другими — вопросов не осталось.»</p><footer><b>Игорь В.</b><span>кабинет «Ректор»</span></footer></article>
+        </div>
+      </div>
+      <div class="slider__ctrl">
+        <div class="slider__dots" id="reviewsDots"></div>
+        <div class="slider__arrows">
+          <button class="slider__btn" data-slide="prev" aria-label="Предыдущий отзыв">←</button>
+          <button class="slider__btn" data-slide="next" aria-label="Следующий отзыв">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————— ЗАЯВКА ————— -->
+<section class="section request" id="request">
+  <div class="shell request__in">
+    <div class="request__text">
+      <span class="mono-label">Заявка</span>
+      <h2 class="h2">Понравился проект<br>из каталога?</h2>
+      <p class="request__lead">Оставьте контакты — пришлём подробности по материалам и подберём похожее решение под ваши размеры. Замер и проект бесплатны, стоимость назовём после него.</p>
+      <ul class="request__list">
+        <li><i>—</i>Перезваниваем в течение 15 минут в рабочее время</li>
+        <li><i>—</i>Не передаём номер третьим лицам и не шлём рассылки</li>
+        <li><i>—</i>Можно просто задать вопрос — без обязательств</li>
+      </ul>
+    </div>
+    <form class="form" id="mainForm" novalidate data-form-topic="Заявка с главной страницы">
+      <div class="field">
+        <label for="f-name">Как к вам обращаться</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Имя" required>
+        <span class="field__err" data-err></span>
+      </div>
+      <div class="field">
+        <label for="f-phone">Телефон</label>
+        <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+        <span class="field__err" data-err></span>
+      </div>
+      <div class="field">
+        <label for="f-cat">Что интересует</label>
+        <select id="f-cat" name="category"></select>
+      </div>
+      <div class="field">
+        <label for="f-note">Комментарий</label>
+        <textarea id="f-note" name="note" rows="2" placeholder="Размеры помещения, сроки, пожелания"></textarea>
+      </div>
+      <label class="check">
+        <input type="checkbox" name="agree" required checked>
+        <span>Согласен с <a href="#popup:privacy" class="js-popup">политикой обработки данных</a></span>
+      </label>
+      <button class="btn btn--solid btn--block" type="submit">Отправить заявку</button>
+    </form>
+  </div>
+</section>
+
+<!-- ————— 07 КОНТАКТЫ ————— -->
+<section class="section section--tint" id="contacts">
+  <div class="shell">
+    <header class="head-line head-line--split">
+      <div>
+        <span class="mono-label">07 / Где нас найти</span>
+        <h2 class="h2">Салон и контакты</h2>
+      </div>
+      <p class="head-line__note head-line__note--wide">В салоне — образцы плит, фасадов, столешниц и работающая фурнитура. Приезжайте с планом квартиры, посчитаем на месте.</p>
+    </header>
+    <div class="contacts">
+      <dl class="contacts__data">
+        <div><dt>Салон</dt><dd>г. Москва, ул. Примерная, 12, стр. 3<br>ТЦ «Интерьер», 2 этаж, павильон 214</dd></div>
+        <div><dt>Часы работы</dt><dd>Ежедневно с 10:00 до 21:00<br>Замер — включая выходные</dd></div>
+        <div><dt>Телефон</dt><dd><a class="ln" href="tel:+70000000000">+7 (000) 000-00-00</a></dd></div>
+        <div><dt>Почта</dt><dd><a class="ln" href="mailto:hello@forma-mebel.ru">hello@forma-mebel.ru</a></dd></div>
+        <div><dt>Мессенджеры</dt><dd><a class="ln" href="https://t.me/" target="_blank" rel="noopener">Telegram</a> · <a class="ln" href="https://wa.me/70000000000" target="_blank" rel="noopener">WhatsApp</a></dd></div>
+        <div><dt>Производство</dt><dd>Московская обл., г. Примерск, Заводская 5<br>Экскурсию организуем по договорённости</dd></div>
+      </dl>
+      <div class="contacts__map" id="map">
+        <div class="map-stub">
+          <span class="mono-label">Схема проезда</span>
+          <p>Вставьте сюда iframe Яндекс.Карт или 2ГИС — блок уже подготовлен.</p>
+          <a class="btn btn--line js-popup" href="#popup:order" data-form-topic="Запрос: как добраться в салон">Построить маршрут</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ————— ПОДВАЛ ————— -->
+<footer class="footer">
+  <div class="shell footer__in">
+    <div class="footer__brand">
+      <span class="logo__name">ФОРМА</span>
+      <p>Салон и производство корпусной и мягкой мебели по индивидуальным размерам. Цены на сайте не указаны: стоимость рассчитывается по проекту после замера.</p>
+    </div>
+    <nav class="footer__nav" aria-label="Навигация в подвале">
+      <a href="#categories">Направления</a>
+      <a href="#catalog">Примеры работ</a>
+      <a href="#why">Почему нам доверяют</a>
+      <a href="#how">Как мы работаем</a>
+      <a href="#materials">Материалы</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+      <a href="#popup:privacy" class="js-popup">Политика данных</a>
+    </nav>
+    <div class="footer__contact">
+      <a class="footer__tel" href="tel:+70000000000">+7 (000) 000-00-00</a>
+      <a class="ln" href="mailto:hello@forma-mebel.ru">hello@forma-mebel.ru</a>
+      <span>Москва, ул. Примерная, 12, стр. 3</span>
+      <span>Ежедневно 10:00 — 21:00</span>
+    </div>
+  </div>
+  <div class="shell footer__bottom">
+    <span>© <span id="year"></span> ФОРМА. Изображения в каталоге — примеры выполненных проектов.</span>
+    <span>Информация на сайте не является публичной офертой.</span>
+  </div>
+</footer>
+
+<!-- ————— БЫСТРАЯ СВЯЗЬ ————— -->
+<div class="quick">
+  <a class="quick__btn quick__btn--tg" href="https://t.me/" target="_blank" rel="noopener" aria-label="Написать в Telegram">
+    <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.9 19c-.2 1-.8 1.2-1.7.8l-4.6-3.4-2.2 2.1c-.3.3-.5.5-1 .5l.3-4.7L18.3 6c.4-.3-.1-.5-.6-.2L7.2 12.4l-4.6-1.4c-1-.3-1-1 .2-1.5l18-6.9c.8-.3 1.5.2 1.1 1.7z"/></svg>
+  </a>
+  <a class="quick__btn quick__btn--wa" href="https://wa.me/70000000000" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+    <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9-.5-.4-.6-.4h-.5a1 1 0 0 0-.7.3A2.9 2.9 0 0 0 6.7 11a5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.6 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"/></svg>
+  </a>
+  <button class="quick__btn quick__btn--call js-popup" data-popup="popup:order" data-form-topic="Обратный звонок" aria-label="Заказать звонок">
+    <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
+  </button>
+</div>
+
+<!-- ————— ПОПАПЫ ————— -->
+<div class="popups" id="popups">
+
+  <div class="popup" id="popup-product" data-popup-id="product" hidden>
+    <div class="popup__backdrop" data-close></div>
+    <div class="popup__win popup__win--wide" role="dialog" aria-modal="true" aria-labelledby="pp-title">
+      <button class="popup__close" data-close aria-label="Закрыть">Закрыть ✕</button>
+      <div class="product" id="productBody"></div>
+    </div>
+  </div>
+
+  <div class="popup" id="popup-order" data-popup-id="order" hidden>
+    <div class="popup__backdrop" data-close></div>
+    <div class="popup__win" role="dialog" aria-modal="true" aria-labelledby="order-title">
+      <button class="popup__close" data-close aria-label="Закрыть">Закрыть ✕</button>
+      <span class="mono-label">Бесплатно и без обязательств</span>
+      <h2 class="popup__title" id="order-title">Записаться на замер</h2>
+      <p class="popup__lead">Дизайнер приедет с образцами материалов, снимет размеры и подготовит проект. Стоимость назовём после замера.</p>
+      <form class="form" id="orderForm" novalidate data-form-topic="Заявка на бесплатный замер">
+        <div class="field">
+          <label for="o-name">Имя</label>
+          <input id="o-name" name="name" type="text" autocomplete="name" placeholder="Имя" required>
+          <span class="field__err" data-err></span>
+        </div>
+        <div class="field">
+          <label for="o-phone">Телефон</label>
+          <input id="o-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+          <span class="field__err" data-err></span>
+        </div>
+        <div class="field">
+          <label for="o-cat">Что интересует</label>
+          <select id="o-cat" name="category"></select>
+        </div>
+        <div class="field">
+          <label for="o-note">Комментарий</label>
+          <textarea id="o-note" name="note" rows="2" placeholder="Адрес, удобное время, пожелания"></textarea>
+        </div>
+        <label class="check">
+          <input type="checkbox" name="agree" required checked>
+          <span>Согласен с <a href="#popup:privacy" class="js-popup">политикой обработки данных</a></span>
+        </label>
+        <button class="btn btn--solid btn--block" type="submit">Отправить</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup" id="popup-plan" data-popup-id="plan" hidden>
+    <div class="popup__backdrop" data-close></div>
+    <div class="popup__win" role="dialog" aria-modal="true" aria-labelledby="plan-title">
+      <button class="popup__close" data-close aria-label="Закрыть">Закрыть ✕</button>
+      <span class="mono-label">Предварительная оценка</span>
+      <h2 class="popup__title" id="plan-title">Пришлите план квартиры</h2>
+      <p class="popup__lead">Достаточно фото плана или БТИ. Скажем, что помещается, предложим компоновку и подберём похожие проекты из каталога.</p>
+      <form class="form" id="planForm" novalidate data-form-topic="Оценка по плану квартиры">
+        <div class="field">
+          <label for="p-name">Имя</label>
+          <input id="p-name" name="name" type="text" placeholder="Имя" required>
+          <span class="field__err" data-err></span>
+        </div>
+        <div class="field">
+          <label for="p-phone">Телефон или мессенджер</label>
+          <input id="p-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required>
+          <span class="field__err" data-err></span>
+        </div>
+        <div class="field">
+          <label for="p-file">План помещения</label>
+          <input id="p-file" name="plan" type="file" accept="image/*,.pdf">
+        </div>
+        <label class="check">
+          <input type="checkbox" name="agree" required checked>
+          <span>Согласен с <a href="#popup:privacy" class="js-popup">политикой обработки данных</a></span>
+        </label>
+        <button class="btn btn--solid btn--block" type="submit">Отправить план</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup" id="popup-thanks" data-popup-id="thanks" hidden>
+    <div class="popup__backdrop" data-close></div>
+    <div class="popup__win popup__win--narrow" role="dialog" aria-modal="true" aria-labelledby="thanks-title">
+      <button class="popup__close" data-close aria-label="Закрыть">Закрыть ✕</button>
+      <span class="mono-label">Заявка №<span id="thanksNo">—</span></span>
+      <h2 class="popup__title" id="thanks-title">Принято</h2>
+      <p class="popup__lead" id="thanksText">Спасибо! Свяжемся в течение 15 минут в рабочее время, а если вы написали ночью — утром.</p>
+      <div class="popup__row">
+        <a class="btn btn--line" href="https://t.me/" target="_blank" rel="noopener">Написать в Telegram</a>
+        <a class="btn btn--line" href="#catalog" data-close>Вернуться к каталогу</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" id="popup-infoblock" data-popup-id="infoblock" hidden>
+    <div class="popup__backdrop" data-close></div>
+    <div class="popup__win" role="dialog" aria-modal="true" aria-labelledby="info-title">
+      <button class="popup__close" data-close aria-label="Закрыть">Закрыть ✕</button>
+      <span class="mono-label">Коротко о нас</span>
+      <h2 class="popup__title" id="info-title">ФОРМА — мебель на заказ</h2>
+      <p class="popup__lead">Салон в Москве и собственное производство. Делаем корпусную и мягкую мебель по индивидуальным размерам с 2011 года.</p>
+      <dl class="popup__data">
+        <div><dt>Салон</dt><dd>Москва, ул. Примерная, 12, стр. 3, ежедневно 10:00–21:00</dd></div>
+        <div><dt>Телефон</dt><dd><a class="ln" href="tel:+70000000000">+7 (000) 000-00-00</a></dd></div>
+        <div><dt>Почта</dt><dd><a class="ln" href="mailto:hello@forma-mebel.ru">hello@forma-mebel.ru</a></dd></div>
+        <div><dt>Мессенджеры</dt><dd><a class="ln" href="https://t.me/" target="_blank" rel="noopener">Telegram</a> · <a class="ln" href="https://wa.me/70000000000" target="_blank" rel="noopener">WhatsApp</a></dd></div>
+      </dl>
+      <div class="popup__row">
+        <a class="btn btn--solid js-popup" href="#popup:order" data-form-topic="Заявка из инфоблока">Записаться на замер</a>
+        <a class="btn btn--line" href="#catalog" data-close>Примеры работ</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" id="popup-privacy" data-popup-id="privacy" hidden>
+    <div class="popup__backdrop" data-close></div>
+    <div class="popup__win" role="dialog" aria-modal="true" aria-labelledby="priv-title">
+      <button class="popup__close" data-close aria-label="Закрыть">Закрыть ✕</button>
+      <h2 class="popup__title" id="priv-title">Политика обработки данных</h2>
+      <div class="prose">
+        <p>Отправляя форму, вы соглашаетесь на обработку указанных данных (имя, телефон, почта, комментарий) с целью ответа на обращение и подготовки коммерческого предложения.</p>
+        <p>Данные не передаются третьим лицам, кроме случаев, предусмотренных законом, и не используются для рассылок без отдельного согласия. Отозвать согласие можно письмом на <a class="ln" href="mailto:hello@forma-mebel.ru">hello@forma-mebel.ru</a>.</p>
+        <p><b>Замените этот текст на вашу редакцию политики.</b> Шаблон приведён для примера и не является юридическим документом.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" id="popup-mat-ldsp" data-popup-id="mat-ldsp" hidden>
+    <div class="popup__backdrop" data-close></div>
+    <div class="popup__win" role="dialog" aria-modal="true"><button class="popup__close" data-close aria-label="Закрыть">Закрыть ✕</button>
+      <span class="mono-label">Материал</span><h2 class="popup__title">ЛДСП</h2>
+      <div class="prose"><p>Базовый материал корпуса: плиты Egger и Kronospan толщиной 16 и 18 мм, класс эмиссии E1. Более 200 декоров — от однотонных до текстур дерева с синхропорой.</p><p>Кромка ABS 0,4–2 мм в цвет плиты, на видимых торцах — 2 мм со скруглением. Влагостойкая база — для кухонь и ванных.</p></div>
+      <a class="btn btn--solid js-popup" href="#popup:order" data-form-topic="Вопрос по ЛДСП">Посмотреть образцы</a>
+    </div>
+  </div>
+  <div class="popup" id="popup-mat-mdf" data-popup-id="mat-mdf" hidden>
+    <div class="popup__backdrop" data-close></div>
+    <div class="popup__win" role="dialog" aria-modal="true"><button class="popup__close" data-close aria-label="Закрыть">Закрыть ✕</button>
+      <span class="mono-label">Материал</span><h2 class="popup__title">МДФ в эмали</h2>
+      <div class="prose"><p>Фасады из МДФ с покраской в эмаль: матовая, глянцевая и софт-тач. Цвет — по вееру RAL или NCS, можно попасть в оттенок стен или текстиля.</p><p>Возможна фрезеровка: филёнка, рейка, скрытые ручки-профили. Покраска в камере с сушкой — без подтёков и «шагрени».</p></div>
+      <a class="btn btn--solid js-popup" href="#popup:order" data-form-topic="Вопрос по МДФ в эмали">Подобрать цвет</a>
+    </div>
+  </div>
+  <div class="popup" id="popup-mat-shpon" data-popup-id="mat-shpon" hidden>
+    <div class="popup__backdrop" data-close></div>
+    <div class="popup__win" role="dialog" aria-modal="true"><button class="popup__close" data-close aria-label="Закрыть">Закрыть ✕</button>
+      <span class="mono-label">Материал</span><h2 class="popup__title">Шпон и массив</h2>
+      <div class="prose"><p>Натуральный шпон дуба, ясеня и ореха с подбором рисунка по всему фронту — текстура продолжается с фасада на фасад. Покрытие: матовый лак или масло-воск Osmo.</p><p>Массив используем для столешниц, изголовий и каркасов. Древесина проходит камерную сушку до влажности 8–10%.</p></div>
+      <a class="btn btn--solid js-popup" href="#popup:order" data-form-topic="Вопрос по шпону и массиву">Показать породы</a>
+    </div>
+  </div>
+  <div class="popup" id="popup-mat-stone" data-popup-id="mat-stone" hidden>
+    <div class="popup__backdrop" data-close></div>
+    <div class="popup__win" role="dialog" aria-modal="true"><button class="popup__close" data-close aria-label="Закрыть">Закрыть ✕</button>
+      <span class="mono-label">Материал</span><h2 class="popup__title">Столешницы</h2>
+      <div class="prose"><p>Искусственный камень (акрил) — бесшовные стыки и интегрированная мойка. Кварцевый агломерат — прочнее и не боится горячего. HPL-постформинг — бюджетно и практично. Массив — тепло и фактура.</p><p>Для кухонь делаем шаблон по месту после установки нижних модулей: столешница садится ровно даже на кривой стене.</p></div>
+      <a class="btn btn--solid js-popup" href="#popup:order" data-form-topic="Вопрос по столешницам">Сравнить варианты</a>
+    </div>
+  </div>
+  <div class="popup" id="popup-mat-blum" data-popup-id="mat-blum" hidden>
+    <div class="popup__backdrop" data-close></div>
+    <div class="popup__win" role="dialog" aria-modal="true"><button class="popup__close" data-close aria-label="Закрыть">Закрыть ✕</button>
+      <span class="mono-label">Комплектующие</span><h2 class="popup__title">Фурнитура</h2>
+      <div class="prose"><p>Blum: ящики Legrabox и Tandembox, подъёмники Aventos, петли Clip top с доводчиком. Hettich: InnoTech, скрытые направляющие. Aristo: системы шкафов-купе и гардеробных.</p><p>Ставим только оригинал с гарантией производителя. Механизмы открывания без ручек — Tip-On и push-to-open.</p></div>
+      <a class="btn btn--solid js-popup" href="#popup:order" data-form-topic="Вопрос по фурнитуре">Попробовать в салоне</a>
+    </div>
+  </div>
+  <div class="popup" id="popup-mat-light" data-popup-id="mat-light" hidden>
+    <div class="popup__backdrop" data-close></div>
+    <div class="popup__win" role="dialog" aria-modal="true"><button class="popup__close" data-close aria-label="Закрыть">Закрыть ✕</button>
+      <span class="mono-label">Комплектующие</span><h2 class="popup__title">Подсветка</h2>
+      <div class="prose"><p>LED-лента в алюминиевом профиле — рабочая зона кухни, полки, ниши, цоколь. Температура 2700–4000K, диммирование, датчики движения и открывания двери.</p><p>Блоки питания прячем в цоколь или верхний короб, провода — в кабель-каналы. Розетки внутри шкафов планируем на этапе проекта.</p></div>
+      <a class="btn btn--solid js-popup" href="#popup:order" data-form-topic="Вопрос по подсветке">Обсудить сценарий</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox__close" data-lb-close aria-label="Закрыть">Закрыть ✕</button>
+  <button class="lightbox__nav lightbox__nav--prev" data-lb-prev aria-label="Предыдущее фото">←</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox__nav lightbox__nav--next" data-lb-next aria-label="Следующее фото">→</button>
+</div>
+
+<script src="js/catalog-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

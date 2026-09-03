@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img">
+  <defs>
+    <pattern id="mm" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#17150F" stroke-width="0.6" opacity="0.07"/>
+    </pattern>
+    <pattern id="mm5" width="200" height="200" patternUnits="userSpaceOnUse">
+      <path d="M200 0H0V200" fill="none" stroke="#17150F" stroke-width="0.9" opacity="0.11"/>
+    </pattern></defs>
+  <rect width="1200" height="900" fill="#EFEDE6"/>
+  <rect width="1200" height="900" fill="url(#mm)"/>
+  <rect width="1200" height="900" fill="url(#mm5)"/>
+  <rect x="0" y="0" width="1200" height="900" fill="#C6BEB4" opacity="0.16"/><rect x="0" y="804" width="1200" height="96" fill="#827669" opacity="0.28"/><line x1="0" y1="804" x2="1200" y2="804" stroke="#17150F" stroke-width="2" opacity="0.5"/><rect x="150" y="260" width="340" height="180" fill="#C6BEB4" stroke="#17150F" stroke-width="2"/><line x1="320" y1="260" x2="320" y2="440" stroke="#17150F" stroke-width="1.5"/><line x1="190" y1="430" x2="280" y2="430" stroke="#17150F" stroke-width="4" opacity="0.55"/><line x1="360" y1="430" x2="450" y2="430" stroke="#17150F" stroke-width="4" opacity="0.55"/><rect x="510" y="200" width="120" height="240" fill="#A79C90" stroke="#17150F" stroke-width="2"/><rect x="150" y="560" width="480" height="20" fill="#827669" stroke="#17150F" stroke-width="2"/><rect x="150" y="580" width="480" height="200" fill="#C6BEB4" stroke="#17150F" stroke-width="2"/><line x1="310" y1="580" x2="310" y2="780" stroke="#17150F" stroke-width="1.5"/><line x1="470" y1="580" x2="470" y2="780" stroke="#17150F" stroke-width="1.5"/><line x1="150" y1="650" x2="310" y2="650" stroke="#17150F" stroke-width="1.5"/><line x1="190" y1="640" x2="270" y2="640" stroke="#17150F" stroke-width="4" opacity="0.55"/><line x1="190" y1="720" x2="270" y2="720" stroke="#17150F" stroke-width="4" opacity="0.55"/><line x1="350" y1="640" x2="430" y2="640" stroke="#17150F" stroke-width="4" opacity="0.55"/><line x1="510" y1="640" x2="590" y2="640" stroke="#17150F" stroke-width="4" opacity="0.55"/><rect x="700" y="560" width="20" height="220" fill="#827669" stroke="#17150F" stroke-width="2"/><rect x="700" y="200" width="260" height="580" fill="#A79C90" stroke="#17150F" stroke-width="2"/><line x1="700" y1="440" x2="960" y2="440" stroke="#17150F" stroke-width="1.5"/><line x1="700" y1="620" x2="960" y2="620" stroke="#17150F" stroke-width="1.5"/><line x1="760" y1="430" x2="900" y2="430" stroke="#17150F" stroke-width="4" opacity="0.55"/><line x1="760" y1="610" x2="900" y2="610" stroke="#17150F" stroke-width="4" opacity="0.55"/><circle cx="250" cy="520" r="22" fill="none" stroke="#17150F" stroke-width="2"/>
+  
+  
+</svg>
