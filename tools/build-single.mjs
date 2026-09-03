@@ -23,10 +23,12 @@ const app = read('js/app.js');
 // пути к картинкам → data:URI (и в разметке, и в данных каталога)
 const inlineImgs = (txt) => txt.replace(/img\/(catalog|ui)\/[A-Za-z0-9_\-]+\.svg/g, (m) => dataUri(m));
 
+// ВАЖНО: замену передаём функцией. Со строкой JS трактует $$, $&, $` и $' как
+// спецпоследовательности — в app.js есть хелпер $$, и он схлопывался в $.
 html = inlineImgs(html)
-  .replace(/<link rel="stylesheet" href="css\/styles\.css">/, `<style>\n${css}\n</style>`)
+  .replace(/<link rel="stylesheet" href="css\/styles\.css">/, () => `<style>\n${css}\n</style>`)
   .replace(/<script src="js\/catalog-data\.js"><\/script>\s*<script src="js\/app\.js"><\/script>/,
-    `<script>\n${inlineImgs(data)}\n</script>\n<script>\n${app}\n</script>`);
+    () => `<script>\n${inlineImgs(data)}\n</script>\n<script>\n${app}\n</script>`);
 
 writeFileSync(OUT, html);
 console.log(`${OUT} — ${(Buffer.byteLength(html) / 1024 / 1024).toFixed(2)} МБ`);
