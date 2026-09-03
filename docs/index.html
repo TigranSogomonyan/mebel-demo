@@ -103,7 +103,7 @@ p:last-child{margin-bottom:0}
 /* шапка тянется во всю ширину экрана: на широких мониторах логотип и кнопка
    стоят по краям, а не по общей сетке в 1440px */
 .header .head{max-width:none}
-.head{height:var(--head-h);display:flex;align-items:center;gap:32px}
+.head{height:var(--head-h);display:flex;align-items:center;justify-content:space-between;gap:32px}
 
 .logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .logo__name{font-size:23px;font-weight:800;letter-spacing:.09em;line-height:1}
@@ -112,7 +112,7 @@ p:last-child{margin-bottom:0}
   text-transform:uppercase;color:var(--ink-50);padding-left:12px;border-left:1px solid var(--rule);
 }
 
-.nav{display:flex;gap:2px;margin-left:auto}
+.nav{display:flex;gap:2px}
 .nav__link{
   position:relative;display:flex;align-items:baseline;gap:6px;padding:8px 12px;
   font-size:15px;font-weight:500;color:var(--ink-70);transition:color .15s;
@@ -123,18 +123,17 @@ p:last-child{margin-bottom:0}
 .nav__link.is-active i{color:var(--red)}
 .nav__link.is-active::after{content:'';position:absolute;left:12px;right:12px;bottom:2px;height:2px;background:var(--red)}
 
-.head__side{display:flex;align-items:center;gap:20px;margin-left:auto}
-.nav+.head__side{margin-left:0}
+.head__side{display:flex;align-items:center;gap:20px}
 .head__tel{font-family:var(--mono);font-size:14px;letter-spacing:-.01em;white-space:nowrap}
 .head__tel:hover{color:var(--red)}
 .head .btn{min-height:42px;padding:0 20px;font-size:14px}
 
-.burger{display:none;margin-left:auto;width:46px;height:46px;border:1px solid var(--rule);flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.burger{display:none;width:46px;height:46px;border:1px solid var(--rule);flex-direction:column;align-items:center;justify-content:center;gap:6px}
 .burger span{display:block;width:20px;height:1.5px;background:var(--ink);transition:transform .2s,opacity .2s}
 .burger[aria-expanded="true"] span:first-child{transform:translateY(3.75px) rotate(45deg)}
 .burger[aria-expanded="true"] span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
 
-@media (max-width:1200px){ .nav{display:none} .head__side{margin-left:auto} }
+@media (max-width:1200px){ .nav{display:none} }
 @media (max-width:860px){
   :root{--head-h:64px}
   .head__side{display:none}
