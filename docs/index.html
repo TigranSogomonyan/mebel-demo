@@ -327,7 +327,7 @@ p:last-child{margin-bottom:0}
 }
 
 /* ————— 04 ПРОЦЕСС: шаги как размерная линия ————— */
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:0}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0}
 .step{position:relative;padding:34px 22px 0 0;border-top:1px solid rgba(239,237,230,.28)}
 .step::before{content:'';position:absolute;top:-1px;left:0;width:1px;height:15px;background:rgba(239,237,230,.5)}
 .step__n{position:absolute;top:14px;left:0;font-family:var(--mono);font-size:11.5px;color:rgba(239,237,230,.5)}
@@ -337,10 +337,6 @@ p:last-child{margin-bottom:0}
 .step--key{border-top-color:var(--red)}
 .step--key::before{background:var(--red);height:21px;width:2px}
 .step--key .step__n{color:#E0714F}
-/* 3 и 4 — одна красная линия: засечка только в начале и в конце отрезка */
-.step--key-end::before{height:15px;width:1px;background:rgba(239,237,230,.5)}
-.step--key-end::after{content:'';position:absolute;top:-1px;right:0;width:2px;height:21px;background:var(--red)}
-@media (max-width:1200px){.steps{grid-template-columns:repeat(3,1fr);gap:0 32px}}
 @media (max-width:1000px){.steps{grid-template-columns:repeat(2,1fr);gap:0 32px}}
 @media (max-width:600px){.steps{grid-template-columns:1fr}}
 
@@ -780,15 +776,14 @@ p:last-child{margin-bottom:0}
         <span class="mono-label">04 / Процесс</span>
         <h2 class="h2">Как мы работаем</h2>
       </div>
-      <p class="head-line__note head-line__note--wide">Шесть шагов от первого звонка до собранной мебели.</p>
+      <p class="head-line__note head-line__note--wide">Пять шагов от первого звонка до собранной мебели.</p>
     </header>
     <ol class="steps">
       <li class="step"><span class="step__n">1</span><h3>Заявка</h3><p>Обсуждаем задачу, показываем похожие проекты, договариваемся о времени замера.</p></li>
       <li class="step"><span class="step__n">2</span><h3>Замер</h3><p>Дизайнер приезжает с образцами материалов и снимает точные размеры помещения.</p></li>
-      <li class="step step--key"><span class="step__n">3</span><h3>3D-проект</h3><p>Готовим планировку и 3D-визуализацию: вы видите мебель в своей комнате до подписания договора.</p></li>
-      <li class="step step--key step--key-end"><span class="step__n">4</span><h3>Смета и договор</h3><p>Считаем стоимость по итоговому проекту и фиксируем её в договоре.</p></li>
-      <li class="step"><span class="step__n">5</span><h3>Производство</h3><p>15–45 рабочих дней в зависимости от материалов. Присылаем фото по этапам.</p></li>
-      <li class="step"><span class="step__n">6</span><h3>Доставка и сборка</h3><p>Привозим, собираем, подключаем технику, увозим упаковку. Подписываем акт.</p></li>
+      <li class="step step--key"><span class="step__n">3</span><h3>3D-проект и смета</h3><p>Готовим планировку и 3D-визуализацию — вы видите мебель в своей комнате. Считаем стоимость по итоговому проекту и фиксируем её в договоре.</p></li>
+      <li class="step"><span class="step__n">4</span><h3>Производство</h3><p>15–45 рабочих дней в зависимости от материалов. Присылаем фото по этапам.</p></li>
+      <li class="step"><span class="step__n">5</span><h3>Доставка и сборка</h3><p>Привозим, собираем, подключаем технику, увозим упаковку. Подписываем акт.</p></li>
     </ol>
     <div class="plan-cta">
       <p>Не знаете, поместится ли гарнитур? Пришлите план квартиры — скажем сразу.</p>
