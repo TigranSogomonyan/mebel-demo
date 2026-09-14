@@ -110,6 +110,21 @@ p:last-child{margin-bottom:0}
 .head__side{display:flex;align-items:center;gap:20px}
 .head__tel{font-family:var(--mono);font-size:14px;letter-spacing:-.01em;white-space:nowrap}
 .head__tel:hover{color:var(--red)}
+/* дополнительные номера: строки выпадают под основным, в тех же линиях, без тени */
+.tels{position:relative}
+.head__tel{display:inline-flex;align-items:baseline;gap:7px;padding:12px 0}
+.head__tel i{font-style:normal;font-size:10px;color:var(--ink-35);transition:color .15s}
+.tels__more{
+  position:absolute;top:100%;right:0;min-width:100%;display:grid;
+  background:var(--paper);border:1px solid var(--ink);
+  opacity:0;visibility:hidden;transform:translateY(-4px);
+  transition:opacity .15s,transform .15s,visibility 0s .15s;
+}
+.tels__more a{font-family:var(--mono);font-size:14px;white-space:nowrap;padding:10px 14px;transition:background .14s,color .14s}
+.tels__more a+a{border-top:1px solid var(--rule)}
+.tels__more a:hover,.tels__more a:focus-visible{background:var(--ink);color:var(--paper)}
+.tels:hover .tels__more,.tels:focus-within .tels__more{opacity:1;visibility:visible;transform:none;transition:opacity .15s,transform .15s}
+.tels:hover .head__tel i,.tels:focus-within .head__tel i{color:var(--red)}
 .head .btn{min-height:42px;padding:0 20px;font-size:14px}
 
 .burger{display:none;width:46px;height:46px;border:1px solid var(--rule);flex-direction:column;align-items:center;justify-content:center;gap:6px}
@@ -147,6 +162,7 @@ p:last-child{margin-bottom:0}
 .sidemenu__nav a:hover{color:var(--red)}
 .sidemenu__foot{margin-top:auto;padding-top:28px;display:grid;gap:12px;justify-items:start}
 .sidemenu__tel{font-family:var(--mono);font-size:19px;margin-top:6px}
+.sidemenu__tel--alt{font-size:15px;margin-top:-6px;color:var(--ink-70)}
 
 /* ————— ГЛАВНЫЙ ЭКРАН ————— */
 .hero{position:relative;padding-top:var(--head-h);border-bottom:1px solid var(--ink)}

@@ -126,6 +126,21 @@ p:last-child{margin-bottom:0}
 .head__side{display:flex;align-items:center;gap:20px}
 .head__tel{font-family:var(--mono);font-size:14px;letter-spacing:-.01em;white-space:nowrap}
 .head__tel:hover{color:var(--red)}
+/* дополнительные номера: строки выпадают под основным, в тех же линиях, без тени */
+.tels{position:relative}
+.head__tel{display:inline-flex;align-items:baseline;gap:7px;padding:12px 0}
+.head__tel i{font-style:normal;font-size:10px;color:var(--ink-35);transition:color .15s}
+.tels__more{
+  position:absolute;top:100%;right:0;min-width:100%;display:grid;
+  background:var(--paper);border:1px solid var(--ink);
+  opacity:0;visibility:hidden;transform:translateY(-4px);
+  transition:opacity .15s,transform .15s,visibility 0s .15s;
+}
+.tels__more a{font-family:var(--mono);font-size:14px;white-space:nowrap;padding:10px 14px;transition:background .14s,color .14s}
+.tels__more a+a{border-top:1px solid var(--rule)}
+.tels__more a:hover,.tels__more a:focus-visible{background:var(--ink);color:var(--paper)}
+.tels:hover .tels__more,.tels:focus-within .tels__more{opacity:1;visibility:visible;transform:none;transition:opacity .15s,transform .15s}
+.tels:hover .head__tel i,.tels:focus-within .head__tel i{color:var(--red)}
 .head .btn{min-height:42px;padding:0 20px;font-size:14px}
 
 .burger{display:none;width:46px;height:46px;border:1px solid var(--rule);flex-direction:column;align-items:center;justify-content:center;gap:6px}
@@ -163,6 +178,7 @@ p:last-child{margin-bottom:0}
 .sidemenu__nav a:hover{color:var(--red)}
 .sidemenu__foot{margin-top:auto;padding-top:28px;display:grid;gap:12px;justify-items:start}
 .sidemenu__tel{font-family:var(--mono);font-size:19px;margin-top:6px}
+.sidemenu__tel--alt{font-size:15px;margin-top:-6px;color:var(--ink-70)}
 
 /* ————— ГЛАВНЫЙ ЭКРАН ————— */
 .hero{position:relative;padding-top:var(--head-h);border-bottom:1px solid var(--ink)}
@@ -554,7 +570,13 @@ p:last-child{margin-bottom:0}
     </nav>
 
     <div class="head__side">
-      <a class="head__tel" href="tel:+70000000000">+7 (000) 000-00-00</a>
+      <div class="tels">
+        <a class="head__tel" href="tel:+79661940333" aria-describedby="telsMore">+7 (966) 194-03-33<i aria-hidden="true">+2</i></a>
+        <div class="tels__more" id="telsMore">
+          <a href="tel:+79689491617">+7 (968) 949-16-17</a>
+          <a href="tel:+79779393807">+7 (977) 939-38-07</a>
+        </div>
+      </div>
       <a class="btn btn--solid js-popup" href="#popup:order" data-form-topic="Заявка на бесплатный замер">Замер бесплатно</a>
     </div>
 
@@ -583,7 +605,9 @@ p:last-child{margin-bottom:0}
     </nav>
     <div class="sidemenu__foot">
       <a class="btn btn--solid btn--block js-popup" href="#popup:order" data-form-topic="Заявка на бесплатный замер">Замер бесплатно</a>
-      <a class="sidemenu__tel" href="tel:+70000000000">+7 (000) 000-00-00</a>
+      <a class="sidemenu__tel" href="tel:+79661940333">+7 (966) 194-03-33</a>
+      <a class="sidemenu__tel sidemenu__tel--alt" href="tel:+79689491617">+7 (968) 949-16-17</a>
+      <a class="sidemenu__tel sidemenu__tel--alt" href="tel:+79779393807">+7 (977) 939-38-07</a>
       <span class="mono-label">Ежедневно 10:00 — 21:00</span>
     </div>
   </aside>
@@ -853,7 +877,7 @@ p:last-child{margin-bottom:0}
       <dl class="contacts__data">
         <div><dt>Салон</dt><dd>г. Москва, ул. Примерная, 12, стр. 3<br>ТЦ «Интерьер», 2 этаж, павильон 214</dd></div>
         <div><dt>Часы работы</dt><dd>Ежедневно с 10:00 до 21:00<br>Замер — включая выходные</dd></div>
-        <div><dt>Телефон</dt><dd><a class="ln" href="tel:+70000000000">+7 (000) 000-00-00</a></dd></div>
+        <div><dt>Телефоны</dt><dd><a class="ln" href="tel:+79661940333">+7 (966) 194-03-33</a><br><a class="ln" href="tel:+79689491617">+7 (968) 949-16-17</a><br><a class="ln" href="tel:+79779393807">+7 (977) 939-38-07</a></dd></div>
         <div><dt>Почта</dt><dd><a class="ln" href="mailto:hello@fam-mebel.ru">hello@fam-mebel.ru</a></dd></div>
         <div><dt>Мессенджеры</dt><dd><a class="ln" href="https://t.me/" target="_blank" rel="noopener">Telegram</a> · <a class="ln" href="https://wa.me/70000000000" target="_blank" rel="noopener">WhatsApp</a></dd></div>
         <div><dt>Производство</dt><dd>Московская обл., г. Примерск, Заводская 5<br>Экскурсию организуем по договорённости</dd></div>
@@ -889,7 +913,9 @@ p:last-child{margin-bottom:0}
       <a href="#popup:privacy" class="js-popup">Политика данных</a>
     </nav>
     <div class="footer__contact">
-      <a class="footer__tel" href="tel:+70000000000">+7 (000) 000-00-00</a>
+      <a class="footer__tel" href="tel:+79661940333">+7 (966) 194-03-33</a>
+      <a class="ln" href="tel:+79689491617">+7 (968) 949-16-17</a>
+      <a class="ln" href="tel:+79779393807">+7 (977) 939-38-07</a>
       <a class="ln" href="mailto:hello@fam-mebel.ru">hello@fam-mebel.ru</a>
       <span>Москва, ул. Примерная, 12, стр. 3</span>
       <span>Ежедневно 10:00 — 21:00</span>
@@ -1014,7 +1040,7 @@ p:last-child{margin-bottom:0}
       <p class="popup__lead">Салон в Москве и собственное производство. Делаем корпусную и мягкую мебель по индивидуальным размерам с 2011 года.</p>
       <dl class="popup__data">
         <div><dt>Салон</dt><dd>Москва, ул. Примерная, 12, стр. 3, ежедневно 10:00–21:00</dd></div>
-        <div><dt>Телефон</dt><dd><a class="ln" href="tel:+70000000000">+7 (000) 000-00-00</a></dd></div>
+        <div><dt>Телефоны</dt><dd><a class="ln" href="tel:+79661940333">+7 (966) 194-03-33</a><br><a class="ln" href="tel:+79689491617">+7 (968) 949-16-17</a><br><a class="ln" href="tel:+79779393807">+7 (977) 939-38-07</a></dd></div>
         <div><dt>Почта</dt><dd><a class="ln" href="mailto:hello@fam-mebel.ru">hello@fam-mebel.ru</a></dd></div>
         <div><dt>Мессенджеры</dt><dd><a class="ln" href="https://t.me/" target="_blank" rel="noopener">Telegram</a> · <a class="ln" href="https://wa.me/70000000000" target="_blank" rel="noopener">WhatsApp</a></dd></div>
       </dl>
