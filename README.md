@@ -97,7 +97,7 @@ tools/gen-images.mjs  генератор заглушек (node tools/gen-images
 | Instagram | `https://instagram.com/fam_furniture` |
 | WhatsApp | `https://wa.me/79779393807` (Эрик) |
 | Адрес | `Москва, ул. Покровская, 14` |
-| Цифры в hero | `10 лет`, `1 500+ работ`, `3D-проект до договора` |
+| Цифры в hero | `10 лет`, `1 500+ работ`, `3D-проект включен` |
 
 Отзывы — блок `<section id="reviews">`, каждый отзыв это `<article class="review">`.
 Текст политики обработки данных в попапе `#popup-privacy` — шаблонный, замените
