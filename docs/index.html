@@ -419,11 +419,17 @@ p:last-child{margin-bottom:0}
 .contacts__data dd{margin:0;font-size:16px;line-height:1.5}
 .tel-list{display:grid;grid-template-columns:max-content max-content;align-items:baseline;gap:3px 16px}
 .tel-list span{display:contents}
+.prod-list{display:grid;gap:6px}
+.prod-list span{display:grid;grid-template-columns:76px 1fr;align-items:baseline;gap:12px}
+.prod-list i{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50)}
 .tel-list i{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50)}
 .contacts__map{border:1px solid var(--ink);min-height:380px;background:
   repeating-linear-gradient(0deg,transparent 0 39px,var(--rule-soft) 39px 40px),
   repeating-linear-gradient(90deg,transparent 0 39px,var(--rule-soft) 39px 40px);}
-.contacts__map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+.contacts__map{display:flex;flex-direction:column}
+.contacts__map .map-frame{flex:1;width:100%;min-height:380px;border:0;display:block;filter:grayscale(.85) sepia(.12) contrast(.95)}
+.map-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:12px 14px;border-top:1px solid var(--ink);background:var(--paper)}
+.map-bar .btn{min-height:42px;font-size:14px;padding:0 18px}
 .map-stub{height:100%;min-height:380px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:12px;padding:clamp(20px,3vw,36px)}
 .map-stub p{max-width:34ch;color:var(--ink-70);font-size:15px}
 @media (max-width:860px){.contacts{grid-template-columns:1fr}}
@@ -879,6 +885,10 @@ p:last-child{margin-bottom:0}
     <div class="contacts">
       <dl class="contacts__data">
         <div><dt>Салон</dt><dd>Москва, ул. Покровская, 14</dd></div>
+        <div><dt>Производство</dt><dd class="prod-list">
+          <span><i>Россия</i>Москва, Московская область, Пензенская обл., г. Кузнецк</span>
+          <span><i>Армения</i>Ереван, г. Эчмиадзин</span>
+        </dd></div>
         <div><dt>Часы работы</dt><dd>Ежедневно с 10:00 до 21:00<br>Замер — включая выходные</dd></div>
         <div><dt>Телефоны</dt><dd class="tel-list">
           <span><a class="ln" href="tel:+79661940333">+7 (966) 194-03-33</a><i>Анжела</i></span>
@@ -890,10 +900,10 @@ p:last-child{margin-bottom:0}
         <div><dt>Instagram</dt><dd><a class="ln" href="https://instagram.com/fam_furniture" target="_blank" rel="noopener">@fam_furniture</a></dd></div>
       </dl>
       <div class="contacts__map" id="map">
-        <div class="map-stub">
-          <span class="mono-label">Схема проезда</span>
-          <p>Вставьте сюда iframe Яндекс.Карт или 2ГИС — блок уже подготовлен.</p>
-          <a class="btn btn--line js-popup" href="#popup:order" data-form-topic="Запрос: как добраться в салон">Построить маршрут</a>
+        <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2014&amp;z=16" title="Салон FAM на Яндекс Картах: Москва, ул. Покровская, 14" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-bar">
+          <span class="mono-label">Москва, ул. Покровская, 14</span>
+          <a class="btn btn--solid" href="https://yandex.ru/maps/?rtext=~%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2014&amp;rtt=auto" target="_blank" rel="noopener">Построить маршрут</a>
         </div>
       </div>
     </div>
