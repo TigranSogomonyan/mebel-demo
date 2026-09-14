@@ -92,11 +92,12 @@ tools/gen-images.mjs  генератор заглушек (node tools/gen-images
 |---|---|
 | Название | `FAM` (в логотипе) и подпись `family furniture` |
 | Телефоны | основной +7 (966) 194-03-33, дополнительные +7 (968) 949-16-17 и +7 (977) 939-38-07 (в шапке — выпадают при наведении) |
-| Почта | `hello@fam-mebel.ru` |
-| Telegram | `https://t.me/` |
+| Почта | `fam.furniture@mail.ru` |
+| Telegram | `https://t.me/family_furnituremsk` |
+| Instagram | `https://instagram.com/fam_furniture` |
 | WhatsApp | `https://wa.me/70000000000` |
-| Адрес | `г. Москва, ул. Примерная, 12, стр. 3` |
-| Цифры в hero | `14 лет`, `2 400+`, `5 лет` |
+| Адрес | `Москва, ул. Покровская, 14` |
+| Цифры в hero | `10 лет`, `1 500+ работ`, `3D-проект до договора` |
 
 Отзывы — блок `<section id="reviews">`, каждый отзыв это `<article class="review">`.
 Текст политики обработки данных в попапе `#popup-privacy` — шаблонный, замените

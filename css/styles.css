@@ -401,6 +401,9 @@ p:last-child{margin-bottom:0}
 .contacts__data > div{display:grid;grid-template-columns:minmax(120px,.5fr) minmax(0,1fr);gap:18px;padding:15px 0;border-bottom:1px solid var(--rule)}
 .contacts__data dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-50);padding-top:3px}
 .contacts__data dd{margin:0;font-size:16px;line-height:1.5}
+.tel-list{display:grid;grid-template-columns:max-content max-content;align-items:baseline;gap:3px 16px}
+.tel-list span{display:contents}
+.tel-list i{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-50)}
 .contacts__map{border:1px solid var(--ink);min-height:380px;background:
   repeating-linear-gradient(0deg,transparent 0 39px,var(--rule-soft) 39px 40px),
   repeating-linear-gradient(90deg,transparent 0 39px,var(--rule-soft) 39px 40px);}

@@ -293,7 +293,7 @@
         '<p class="product__note">Размеры и наполнение в примере — под конкретное помещение. Ваш проект пересчитаем по вашим стенам; стоимость назовём после бесплатного замера.</p>' +
         '<div class="product__cta">' +
           '<button class="btn btn--solid js-popup" data-popup="popup:order" data-form-topic="Заявка по проекту: ' + esc(p.title) + '">Рассчитать под мои размеры</button>' +
-          '<a class="btn btn--line" href="https://t.me/" target="_blank" rel="noopener">Спросить в Telegram</a>' +
+          '<a class="btn btn--line" href="https://t.me/family_furnituremsk" target="_blank" rel="noopener">Спросить в Telegram</a>' +
         '</div>' +
       '</div>';
 
