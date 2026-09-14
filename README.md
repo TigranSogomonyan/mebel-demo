@@ -95,7 +95,7 @@ tools/gen-images.mjs  генератор заглушек (node tools/gen-images
 | Почта | `fam.furniture@mail.ru` |
 | Telegram | `https://t.me/family_furnituremsk` |
 | Instagram | `https://instagram.com/fam_furniture` |
-| WhatsApp | `https://wa.me/70000000000` |
+| WhatsApp | `https://wa.me/79779393807` (Эрик) |
 | Адрес | `Москва, ул. Покровская, 14` |
 | Цифры в hero | `10 лет`, `1 500+ работ`, `3D-проект до договора` |
 
