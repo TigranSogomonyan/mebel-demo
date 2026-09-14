@@ -327,12 +327,17 @@ p:last-child{margin-bottom:0}
 }
 
 /* ————— 04 ПРОЦЕСС: шаги как размерная линия ————— */
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:0}
 .step{position:relative;padding:34px 22px 0 0;border-top:1px solid rgba(239,237,230,.28)}
 .step::before{content:'';position:absolute;top:-1px;left:0;width:1px;height:15px;background:rgba(239,237,230,.5)}
 .step__n{position:absolute;top:14px;left:0;font-family:var(--mono);font-size:11.5px;color:rgba(239,237,230,.5)}
 .step h3{font-size:18px;margin-bottom:8px;font-weight:600}
 .step p{font-size:14.5px;color:rgba(239,237,230,.62);max-width:30ch}
+/* 3D-проект — ключевой шаг: киноварная засечка и номер */
+.step--key{border-top-color:var(--red)}
+.step--key::before{background:var(--red);height:21px;width:2px}
+.step--key .step__n{color:#E0714F}
+@media (max-width:1200px){.steps{grid-template-columns:repeat(3,1fr);gap:0 32px}}
 @media (max-width:1000px){.steps{grid-template-columns:repeat(2,1fr);gap:0 32px}}
 @media (max-width:600px){.steps{grid-template-columns:1fr}}
 
@@ -344,7 +349,7 @@ p:last-child{margin-bottom:0}
 @media (max-width:560px){.plan-cta .btn{width:100%}}
 
 /* ————— 05 МАТЕРИАЛЫ: образцы в ряд ————— */
-.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(14px,1.6vw,26px)}
+.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(14px,1.6vw,26px);align-items:start}
 .swatch{text-align:left;display:block}
 .swatch__chip{
   display:block;height:clamp(112px,13.5vw,214px);background:linear-gradient(140deg,var(--c1) 0%,var(--c1) 48%,var(--c2) 48%,var(--c2) 100%);
@@ -356,6 +361,35 @@ p:last-child{margin-bottom:0}
 .swatch__note{display:block;margin-top:3px;font-family:var(--mono);font-size:11px;line-height:1.45;color:var(--ink-50);letter-spacing:.03em}
 @media (max-width:900px){.swatches{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:480px){.swatches{grid-template-columns:repeat(2,1fr)}}
+
+/* выбор в салоне шире: цифры коллекций строкой между линиями */
+.stock{margin-top:clamp(40px,5vw,72px);padding-block:26px;border-block:1px solid var(--ink);
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px clamp(24px,3vw,48px);align-items:center}
+.stock__nums{grid-column:1/-1}
+.stock>.btn{grid-column:2;grid-row:1;justify-self:end}
+.stock__lead p{margin-top:10px;font-size:15px;color:var(--ink-70);max-width:62ch}
+.stock__nums{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stock__nums li{padding:0 18px;border-left:1px solid var(--rule);display:grid;gap:6px;align-content:start}
+.stock__nums li:first-child{border-left:0;padding-left:0}
+.stock__nums b{font-size:clamp(22px,2.4vw,34px);font-weight:700;letter-spacing:-.03em;line-height:1;white-space:nowrap}
+.stock__nums span{font-family:var(--mono);font-size:11px;line-height:1.45;color:var(--ink-50);letter-spacing:.02em}
+@media (max-width:760px){.stock{grid-template-columns:1fr}.stock>.btn{grid-column:1;grid-row:auto;justify-self:start}}
+@media (max-width:620px){.stock__nums{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:18px}.stock__nums li:nth-child(odd){border-left:0;padding-left:0}}
+
+/* популярные материалы: образец, название, код коллекции */
+.picks{margin-top:clamp(36px,4vw,56px)}
+.picks__head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+.picks__head p{margin:0;font-size:15px;color:var(--ink-70)}
+.picks__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));counter-reset:pick}
+.pick{counter-increment:pick;display:grid;grid-template-columns:44px minmax(0,1fr);grid-template-rows:auto auto;column-gap:14px;align-items:center;padding:16px 16px 16px 0;border-bottom:1px solid var(--rule-soft)}
+.pick__chip{grid-row:span 2;width:44px;height:44px;border:1px solid var(--rule);background:linear-gradient(140deg,var(--c1) 0 55%,var(--c2) 55%)}
+.pick__chip--wood{background:repeating-linear-gradient(100deg,var(--c1) 0 5px,var(--c2) 5px 7px,var(--c1) 7px 13px)}
+.pick__chip--stone{background:linear-gradient(125deg,transparent 46%,var(--c2) 48%,transparent 50%),linear-gradient(60deg,transparent 68%,var(--c2) 69%,transparent 70%),var(--c1)}
+.pick b{font-size:15px;font-weight:600;letter-spacing:-.015em;line-height:1.25;align-self:end}
+.pick b::before{content:counter(pick,decimal-leading-zero) ' ';font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--red)}
+.pick__meta{font-family:var(--mono);font-size:11px;color:var(--ink-50);letter-spacing:.03em;align-self:start;margin-top:2px}
+@media (max-width:1000px){.picks__list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.picks__list{grid-template-columns:1fr}}
 
 /* ————— 06 ОТЗЫВЫ: крупная цитата, без карточек ————— */
 .slider__viewport{overflow:hidden}
@@ -743,14 +777,15 @@ p:last-child{margin-bottom:0}
         <span class="mono-label">04 / Процесс</span>
         <h2 class="h2">Как мы работаем</h2>
       </div>
-      <p class="head-line__note head-line__note--wide">Пять шагов от первого звонка до собранной мебели.</p>
+      <p class="head-line__note head-line__note--wide">Шесть шагов от первого звонка до собранной мебели.</p>
     </header>
     <ol class="steps">
       <li class="step"><span class="step__n">1</span><h3>Заявка</h3><p>Обсуждаем задачу, показываем похожие проекты, договариваемся о времени замера.</p></li>
-      <li class="step"><span class="step__n">2</span><h3>Замер и проект</h3><p>Дизайнер приезжает с образцами материалов, снимает размеры, готовит планировку и 3D.</p></li>
-      <li class="step"><span class="step__n">3</span><h3>Смета и договор</h3><p>Считаем стоимость по итоговому проекту и фиксируем её. Аванс — 50%.</p></li>
-      <li class="step"><span class="step__n">4</span><h3>Производство</h3><p>15–45 рабочих дней в зависимости от материалов. Присылаем фото по этапам.</p></li>
-      <li class="step"><span class="step__n">5</span><h3>Доставка и сборка</h3><p>Привозим, собираем, подключаем технику, увозим упаковку. Подписываем акт.</p></li>
+      <li class="step"><span class="step__n">2</span><h3>Замер</h3><p>Дизайнер приезжает с образцами материалов и снимает точные размеры помещения.</p></li>
+      <li class="step step--key"><span class="step__n">3</span><h3>3D-проект</h3><p>Готовим планировку и 3D-визуализацию: вы видите мебель в своей комнате до подписания договора.</p></li>
+      <li class="step"><span class="step__n">4</span><h3>Смета и договор</h3><p>Считаем стоимость по итоговому проекту и фиксируем её в договоре.</p></li>
+      <li class="step"><span class="step__n">5</span><h3>Производство</h3><p>15–45 рабочих дней в зависимости от материалов. Присылаем фото по этапам.</p></li>
+      <li class="step"><span class="step__n">6</span><h3>Доставка и сборка</h3><p>Привозим, собираем, подключаем технику, увозим упаковку. Подписываем акт.</p></li>
     </ol>
     <div class="plan-cta">
       <p>Не знаете, поместится ли гарнитур? Пришлите план квартиры — скажем сразу.</p>
@@ -800,6 +835,38 @@ p:last-child{margin-bottom:0}
         <span class="swatch__name">Подсветка</span>
         <span class="swatch__note">LED-профиль, датчики, диммеры</span>
       </button>
+    </div>
+
+    <!-- в салоне выбор шире, чем шесть групп на сайте -->
+    <div class="stock">
+      <div class="stock__lead">
+        <span class="mono-label">В салоне — больше, чем на сайте</span>
+        <p>Здесь показаны шесть групп материалов. В салоне лежат полные коллекции: каждый декор, цвет и ткань можно сравнить вживую при дневном и тёплом свете.</p>
+      </div>
+      <ul class="stock__nums">
+        <li><b>200+</b><span>декоров ЛДСП Egger и Kronospan</span></li>
+        <li><b>RAL/NCS</b><span>любой цвет эмали по вееру</span></li>
+        <li><b>60+</b><span>тканей для мягкой мебели</span></li>
+        <li><b>4</b><span>вида столешниц: акрил, кварц, HPL, массив</span></li>
+      </ul>
+      <a class="btn btn--solid js-popup" href="#popup:order" data-form-topic="Хочу посмотреть все образцы материалов">Посмотреть все образцы</a>
+    </div>
+
+    <div class="picks">
+      <div class="picks__head">
+        <span class="mono-label">Выбирают чаще всего</span>
+        <p>Материалы, с которых начинается большинство проектов</p>
+      </div>
+      <ol class="picks__list">
+        <li class="pick"><span class="pick__chip pick__chip--wood" style="--c1:#B4875A;--c2:#9A7049"></span><b>Дуб Галифакс натуральный</b><span class="pick__meta">ЛДСП · Egger H1180</span></li>
+        <li class="pick"><span class="pick__chip" style="--c1:#BEB5A7;--c2:#BEB5A7"></span><b>Кашемир серый</b><span class="pick__meta">ЛДСП · Egger U702</span></li>
+        <li class="pick"><span class="pick__chip" style="--c1:#F1EFE8;--c2:#F1EFE8"></span><b>Белый премиум</b><span class="pick__meta">ЛДСП · Egger W1000</span></li>
+        <li class="pick"><span class="pick__chip" style="--c1:#474A51;--c2:#474A51"></span><b>Графитовый серый, матовая эмаль</b><span class="pick__meta">МДФ · RAL 7024</span></li>
+        <li class="pick"><span class="pick__chip pick__chip--wood" style="--c1:#6B4A33;--c2:#553925"></span><b>Американский орех</b><span class="pick__meta">Шпон · масло-воск</span></li>
+        <li class="pick"><span class="pick__chip pick__chip--stone" style="--c1:#F2F0EB;--c2:#B9B3A8"></span><b>Кварц «Калакатта»</b><span class="pick__meta">Столешница · 20 мм</span></li>
+        <li class="pick"><span class="pick__chip" style="--c1:#CFD3D2;--c2:#9EA4A3"></span><b>Legrabox с доводчиком</b><span class="pick__meta">Фурнитура · Blum</span></li>
+        <li class="pick"><span class="pick__chip" style="--c1:#F4E4BC;--c2:#E6C57F"></span><b>Тёплая подсветка 3000K</b><span class="pick__meta">LED-профиль · диммер</span></li>
+      </ol>
     </div>
   </div>
 </section>

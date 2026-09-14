@@ -311,12 +311,17 @@ p:last-child{margin-bottom:0}
 }
 
 /* ————— 04 ПРОЦЕСС: шаги как размерная линия ————— */
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:0}
 .step{position:relative;padding:34px 22px 0 0;border-top:1px solid rgba(239,237,230,.28)}
 .step::before{content:'';position:absolute;top:-1px;left:0;width:1px;height:15px;background:rgba(239,237,230,.5)}
 .step__n{position:absolute;top:14px;left:0;font-family:var(--mono);font-size:11.5px;color:rgba(239,237,230,.5)}
 .step h3{font-size:18px;margin-bottom:8px;font-weight:600}
 .step p{font-size:14.5px;color:rgba(239,237,230,.62);max-width:30ch}
+/* 3D-проект — ключевой шаг: киноварная засечка и номер */
+.step--key{border-top-color:var(--red)}
+.step--key::before{background:var(--red);height:21px;width:2px}
+.step--key .step__n{color:#E0714F}
+@media (max-width:1200px){.steps{grid-template-columns:repeat(3,1fr);gap:0 32px}}
 @media (max-width:1000px){.steps{grid-template-columns:repeat(2,1fr);gap:0 32px}}
 @media (max-width:600px){.steps{grid-template-columns:1fr}}
 
@@ -328,7 +333,7 @@ p:last-child{margin-bottom:0}
 @media (max-width:560px){.plan-cta .btn{width:100%}}
 
 /* ————— 05 МАТЕРИАЛЫ: образцы в ряд ————— */
-.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(14px,1.6vw,26px)}
+.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(14px,1.6vw,26px);align-items:start}
 .swatch{text-align:left;display:block}
 .swatch__chip{
   display:block;height:clamp(112px,13.5vw,214px);background:linear-gradient(140deg,var(--c1) 0%,var(--c1) 48%,var(--c2) 48%,var(--c2) 100%);
@@ -340,6 +345,35 @@ p:last-child{margin-bottom:0}
 .swatch__note{display:block;margin-top:3px;font-family:var(--mono);font-size:11px;line-height:1.45;color:var(--ink-50);letter-spacing:.03em}
 @media (max-width:900px){.swatches{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:480px){.swatches{grid-template-columns:repeat(2,1fr)}}
+
+/* выбор в салоне шире: цифры коллекций строкой между линиями */
+.stock{margin-top:clamp(40px,5vw,72px);padding-block:26px;border-block:1px solid var(--ink);
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px clamp(24px,3vw,48px);align-items:center}
+.stock__nums{grid-column:1/-1}
+.stock>.btn{grid-column:2;grid-row:1;justify-self:end}
+.stock__lead p{margin-top:10px;font-size:15px;color:var(--ink-70);max-width:62ch}
+.stock__nums{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stock__nums li{padding:0 18px;border-left:1px solid var(--rule);display:grid;gap:6px;align-content:start}
+.stock__nums li:first-child{border-left:0;padding-left:0}
+.stock__nums b{font-size:clamp(22px,2.4vw,34px);font-weight:700;letter-spacing:-.03em;line-height:1;white-space:nowrap}
+.stock__nums span{font-family:var(--mono);font-size:11px;line-height:1.45;color:var(--ink-50);letter-spacing:.02em}
+@media (max-width:760px){.stock{grid-template-columns:1fr}.stock>.btn{grid-column:1;grid-row:auto;justify-self:start}}
+@media (max-width:620px){.stock__nums{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:18px}.stock__nums li:nth-child(odd){border-left:0;padding-left:0}}
+
+/* популярные материалы: образец, название, код коллекции */
+.picks{margin-top:clamp(36px,4vw,56px)}
+.picks__head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+.picks__head p{margin:0;font-size:15px;color:var(--ink-70)}
+.picks__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));counter-reset:pick}
+.pick{counter-increment:pick;display:grid;grid-template-columns:44px minmax(0,1fr);grid-template-rows:auto auto;column-gap:14px;align-items:center;padding:16px 16px 16px 0;border-bottom:1px solid var(--rule-soft)}
+.pick__chip{grid-row:span 2;width:44px;height:44px;border:1px solid var(--rule);background:linear-gradient(140deg,var(--c1) 0 55%,var(--c2) 55%)}
+.pick__chip--wood{background:repeating-linear-gradient(100deg,var(--c1) 0 5px,var(--c2) 5px 7px,var(--c1) 7px 13px)}
+.pick__chip--stone{background:linear-gradient(125deg,transparent 46%,var(--c2) 48%,transparent 50%),linear-gradient(60deg,transparent 68%,var(--c2) 69%,transparent 70%),var(--c1)}
+.pick b{font-size:15px;font-weight:600;letter-spacing:-.015em;line-height:1.25;align-self:end}
+.pick b::before{content:counter(pick,decimal-leading-zero) ' ';font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--red)}
+.pick__meta{font-family:var(--mono);font-size:11px;color:var(--ink-50);letter-spacing:.03em;align-self:start;margin-top:2px}
+@media (max-width:1000px){.picks__list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.picks__list{grid-template-columns:1fr}}
 
 /* ————— 06 ОТЗЫВЫ: крупная цитата, без карточек ————— */
 .slider__viewport{overflow:hidden}
