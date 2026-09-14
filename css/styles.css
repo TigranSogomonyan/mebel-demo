@@ -21,6 +21,7 @@
   --red-dark:#8A2D18;
 
   --sans:'Golos Text',-apple-system,'Segoe UI',Roboto,sans-serif;
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
   --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 
   --head-h:72px;
@@ -513,3 +514,8 @@ p:last-child{margin-bottom:0}
   html{scroll-behavior:auto}
   *{transition-duration:.01ms !important;animation-duration:.01ms !important}
 }
+
+/* заголовки и марка — Playfair Display */
+h1,h2,h3,.h2,.logo__name,.hero__title,.popup__title,.product__title,.dirs__name,.work__title,.swatch__name,.review p,.plan-cta p,.hero__facts b{font-family:var(--serif);letter-spacing:-.01em}
+.hero__title{font-weight:600;line-height:1}
+.logo__name{letter-spacing:.04em}
