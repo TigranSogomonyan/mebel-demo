@@ -422,6 +422,8 @@ p:last-child{margin-bottom:0}
 .field.has-error input,.field.has-error select{border-bottom-color:var(--red)}
 .field__err{font-family:var(--mono);font-size:11px;color:var(--red);letter-spacing:.05em;display:none}
 .field.has-error .field__err{display:block}
+.form__status{margin:0;padding:10px 12px;border-left:2px solid var(--red);background:rgba(169,58,34,.06);font-size:14px;color:var(--red-dark);line-height:1.45}
+.hp{position:absolute !important;left:-9999px !important;width:1px;height:1px;opacity:0}
 .check{display:grid;grid-template-columns:20px 1fr;gap:11px;align-items:start;font-size:13.5px;color:var(--ink-50);line-height:1.45;cursor:pointer}
 .check input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--red)}
 .check a{border-bottom:1px solid var(--rule)}

@@ -438,6 +438,8 @@ p:last-child{margin-bottom:0}
 .field.has-error input,.field.has-error select{border-bottom-color:var(--red)}
 .field__err{font-family:var(--mono);font-size:11px;color:var(--red);letter-spacing:.05em;display:none}
 .field.has-error .field__err{display:block}
+.form__status{margin:0;padding:10px 12px;border-left:2px solid var(--red);background:rgba(169,58,34,.06);font-size:14px;color:var(--red-dark);line-height:1.45}
+.hp{position:absolute !important;left:-9999px !important;width:1px;height:1px;opacity:0}
 .check{display:grid;grid-template-columns:20px 1fr;gap:11px;align-items:start;font-size:13.5px;color:var(--ink-50);line-height:1.45;cursor:pointer}
 .check input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--red)}
 .check a{border-bottom:1px solid var(--rule)}
@@ -1370,6 +1372,16 @@ window.PRODUCTS = [
 (function () {
   'use strict';
 
+  /* ——————————————————— TELEGRAM ———————————————————
+     Заявки уходят в канал через бота. Токен виден в коде страницы:
+     если в канал начнут писать посторонние, перевыпустите токен
+     в @BotFather (команда /revoke) и замените его здесь.
+     Пока поля пустые, формы работают в демо-режиме — заявка пишется в консоль. */
+  var TELEGRAM = {
+    token: '',    // 123456789:AAE…  — выдаёт @BotFather
+    chatId: ''    // @имя_канала для публичного или -100… для закрытого
+  };
+
   var PRODUCTS = window.PRODUCTS || [];
   var CATEGORIES = window.CATEGORIES || [];
   var CAT_TITLE = {};
@@ -1860,11 +1872,57 @@ window.PRODUCTS = [
     return ok;
   }
 
+  function formStatus(form, msg) {
+    var el = $('.form__status', form);
+    if (!el) {
+      el = document.createElement('p');
+      el.className = 'form__status';
+      el.setAttribute('role', 'alert');
+      var btn = $('button[type=submit]', form);
+      form.insertBefore(el, btn);
+    }
+    el.textContent = msg;
+    el.hidden = !msg;
+  }
+
+  function leadText(data) {
+    var rows = [['Имя', data.name], ['Телефон', data.phone], ['Интересует', data.category], ['Комментарий', data.note]]
+      .filter(function (r) { return r[1] && String(r[1]).trim(); })
+      .map(function (r) { return '<b>' + r[0] + ':</b> ' + esc(String(r[1]).trim()); });
+    var when = new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+    return '<b>Новая заявка · FAM</b>\n' + esc(data.topic) + '\n\n' + rows.join('\n') +
+      '\n\n<i>' + when + ' МСК</i>';
+  }
+
+  function tgCall(method, body) {
+    return fetch('https://api.telegram.org/bot' + TELEGRAM.token + '/' + method, { method: 'POST', body: body })
+      .then(function (r) { return r.json(); })
+      .then(function (j) { if (!j.ok) throw new Error(j.description || 'Telegram API'); return j; });
+  }
+
+  function sendLead(data, file) {
+    // URLSearchParams и FormData не требуют предварительного CORS-запроса
+    var msg = new URLSearchParams({ chat_id: TELEGRAM.chatId, text: leadText(data), parse_mode: 'HTML', disable_web_page_preview: 'true' });
+    return tgCall('sendMessage', msg).then(function () {
+      if (!file) return;
+      var fd = new FormData();
+      fd.append('chat_id', TELEGRAM.chatId);
+      fd.append('document', file, file.name);
+      fd.append('caption', 'План к заявке: ' + (data.name || '') + ', ' + (data.phone || ''));
+      return tgCall('sendDocument', fd);
+    });
+  }
+
   function initForms() {
     fillSelects();
     $$('input[type=tel]').forEach(maskPhone);
 
     $$('form').forEach(function (form) {
+      var hp = document.createElement('input');
+      hp.type = 'text'; hp.name = 'website'; hp.tabIndex = -1; hp.autocomplete = 'off';
+      hp.className = 'hp'; hp.setAttribute('aria-hidden', 'true');
+      form.appendChild(hp);
+
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         if (!validate(form)) {
@@ -1876,30 +1934,21 @@ window.PRODUCTS = [
         var label = btn ? btn.textContent : '';
         if (btn) { btn.disabled = true; btn.textContent = 'Отправляем…'; }
 
+        // тема из кнопки, открывшей попап (например, конкретный проект), важнее общей темы формы
+        var inPopup = !!form.closest('.popup');
         var data = {
-          topic: form.dataset.formTopic || pendingTopic || 'Заявка с сайта',
-          page: location.href,
-          sentAt: new Date().toISOString()
+          topic: (inPopup && pendingTopic) || form.dataset.formTopic || 'Заявка с сайта',
+          page: location.href
         };
         new FormData(form).forEach(function (v, k) { if (typeof v === 'string') data[k] = v; });
+        var fileInput = $('input[type=file]', form);
+        var file = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
 
-        /* ————————————————————————————————————————————————
-           ЗДЕСЬ ПОДКЛЮЧАЕТСЯ ОТПРАВКА.
-           Пример для своего бэкенда / Telegram-бота / CRM:
-
-           fetch('/api/lead', {
-             method: 'POST',
-             headers: { 'Content-Type': 'application/json' },
-             body: JSON.stringify(data)
-           }).then(...)
-
-           Пока заявка просто логируется в консоль.
-           ———————————————————————————————————————————————— */
-        console.log('Заявка:', data);
-
-        setTimeout(function () {
+        var done = function () {
           if (btn) { btn.disabled = false; btn.textContent = label; }
+          formStatus(form, '');
           form.reset();
+          pendingTopic = '';
           $$('.field', form).forEach(function (f) { f.classList.remove('has-error'); });
           var no = $('#thanksNo');
           if (no) no.textContent = String(Date.now()).slice(-5);
@@ -1908,7 +1957,35 @@ window.PRODUCTS = [
             ? data.name + ', спасибо! Заявку получили — свяжемся с вами в течение того же дня.'
             : 'Спасибо! Заявку получили — свяжемся с вами в течение того же дня.';
           Popup.open('thanks');
-        }, 600);
+        };
+        var fail = function (msg) {
+          if (btn) { btn.disabled = false; btn.textContent = label; }
+          formStatus(form, msg || 'Не получилось отправить заявку. Позвоните нам: +7 (966) 194-03-33 — или напишите в Telegram.');
+        };
+
+        // ловушка для ботов: поле скрыто от людей, спам-скрипты его заполняют
+        if (data.website) { setTimeout(done, 600); return; }
+        delete data.website;
+
+        if (file && file.size > 20 * 1024 * 1024) { fail('Файл больше 20 МБ. Пришлите план поменьше или отправьте его в Telegram.'); return; }
+
+        var last = 0;
+        try { last = +localStorage.getItem('fam-lead-sent') || 0; } catch (err) {}
+        if (Date.now() - last < 30000) { fail('Заявка уже отправлена. Если нужно что-то добавить, подождите полминуты.'); return; }
+
+        if (!TELEGRAM.token || !TELEGRAM.chatId) {
+          console.info('Демо-режим, Telegram не настроен. Заявка:', data, file);
+          setTimeout(done, 600);
+          return;
+        }
+
+        sendLead(data, file).then(function () {
+          try { localStorage.setItem('fam-lead-sent', String(Date.now())); } catch (err) {}
+          done();
+        }).catch(function (err) {
+          console.error('Telegram:', err);
+          fail();
+        });
       });
 
       $$('input,select,textarea', form).forEach(function (el) {
