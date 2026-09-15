@@ -6,7 +6,7 @@
  *
  * Свойства скрипта (Настройки проекта → Свойства скрипта):
  *   TELEGRAM_TOKEN    — токен от @BotFather
- *   TELEGRAM_CHAT_ID  — номер канала, узнаётся функцией findChatId()
+ *   TELEGRAM_CHAT_ID  — номер канала или группы, узнаётся функцией findChatId()
  */
 
 const MAX_LEADS_PER_MINUTE = 6;   // защита от флуда: больше заявок в минуту скрипт не пропустит
@@ -102,13 +102,23 @@ function settings_(tokenOnly) {
   return { token: token.trim(), chatId: chatId && chatId.trim() };
 }
 
-function telegram_(token, method, payload) {
+function telegram_(token, method, payload, retried) {
   const r = UrlFetchApp.fetch('https://api.telegram.org/bot' + token + '/' + method, {
     method: 'post',
     payload: payload,
     muteHttpExceptions: true
   });
   const body = JSON.parse(r.getContentText());
+
+  // группу превратили в супергруппу — у неё новый номер: запоминаем и повторяем
+  const moved = body.parameters && body.parameters.migrate_to_chat_id;
+  if (!body.ok && moved && payload.chat_id && !retried) {
+    PropertiesService.getScriptProperties().setProperty('TELEGRAM_CHAT_ID', String(moved));
+    console.log('Номер чата сменился на ' + moved + ', свойство обновлено');
+    payload.chat_id = String(moved);
+    return telegram_(token, method, payload, true);
+  }
+
   if (!body.ok) throw new Error(method + ': ' + body.description);
   return body;
 }
