@@ -300,7 +300,7 @@
         '<p class="product__note">Размеры и наполнение в примере — под конкретное помещение. Ваш проект пересчитаем по вашим стенам; стоимость назовём после бесплатного замера.</p>' +
         '<div class="product__cta">' +
           '<button class="btn btn--solid js-popup" data-popup="popup:order" data-form-topic="Заявка по проекту: ' + esc(p.title) + '">Рассчитать под мои размеры</button>' +
-          '<a class="btn btn--line" href="https://t.me/family_furnituremsk" target="_blank" rel="noopener">Спросить в Telegram</a>' +
+          '<a class="btn btn--line" href="https://t.me/family_furnituremsk" target="_blank" rel="noopener noreferrer">Спросить в Telegram</a>' +
         '</div>' +
       '</div>';
 
@@ -597,6 +597,7 @@
         if (data.website) { setTimeout(done, 600); return; }
         delete data.website;
 
+        if (file && !/^(application\/pdf|image\/(jpeg|png|webp|heic|heif))$/i.test(file.type || '')) { fail('Можно прикрепить PDF или изображение (JPG, PNG, WEBP, HEIC).'); return; }
         if (file && file.size > 10 * 1024 * 1024) { fail('Файл больше 10 МБ. Пришлите план поменьше или отправьте его в Telegram.'); return; }
 
         var last = 0;
@@ -604,7 +605,7 @@
         if (Date.now() - last < 30000) { fail('Заявка уже отправлена. Если нужно что-то добавить, подождите полминуты.'); return; }
 
         if (!LEADS_ENDPOINT) {
-          console.info('Демо-режим, адрес для заявок не задан. Заявка:', data, file);
+          console.info('Демо-режим: адрес для заявок не задан, заявка никуда не отправлена.');
           setTimeout(done, 600);
           return;
         }
@@ -630,6 +631,23 @@
     return function () { clearTimeout(t); var a = arguments, c = this; t = setTimeout(function () { fn.apply(c, a); }, ms); };
   }
 
+  // карта Яндекса грузится только после нажатия — до этого сторонних запросов нет
+  function initMap() {
+    var btn = $('[data-map-src]');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.className = 'map-frame';
+      f.src = btn.dataset.mapSrc;
+      f.title = 'Салон FAM на Яндекс Картах: Москва, ул. Покровская, 14';
+      f.setAttribute('referrerpolicy', 'no-referrer');
+      f.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox');
+      f.setAttribute('allowfullscreen', '');
+      var facade = btn.closest('.map-facade');
+      facade.parentNode.replaceChild(f, facade);
+    });
+  }
+
   function initHeader() {
     var header = $('#header');
     var sections = $$('main section[id]');
@@ -652,6 +670,7 @@
     initCatalog();
     initForms();
     initHeader();
+    initMap();
     Popup.route(true);          // открыть попап, если в адресе #popup:xxx
   });
 

@@ -10,14 +10,36 @@
  */
 
 const MAX_LEADS_PER_MINUTE = 6;   // защита от флуда: больше заявок в минуту скрипт не пропустит
+const MAX_FILE_MB = 10;
+const ALLOWED_FILES = ['application/pdf', 'image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif'];
+const LIMITS = { topic: 120, name: 80, phone: 20, category: 60, note: 1000 };
 
 function doPost(e) {
   try {
-    const p = (e && e.parameter) || {};
+    const raw = (e && e.parameter) || {};
 
     // ловушка для спам-ботов: поле скрыто от людей
-    if (p.website) return json_({ ok: true });
-    if (!p.name || !p.phone) return json_({ ok: false, error: 'Не заполнены имя или телефон' });
+    if (raw.website) return json_({ ok: true });
+
+    // всё, что пришло с сайта, считаем недоверенным: обрезаем и чистим
+    const p = {};
+    Object.keys(LIMITS).forEach(function (k) { p[k] = clean_(raw[k], LIMITS[k]); });
+
+    if (p.name.length < 2) return json_({ ok: false, error: 'Не заполнено имя' });
+    const digits = p.phone.replace(/\D/g, '');
+    if (digits.length < 10 || digits.length > 15) return json_({ ok: false, error: 'Некорректный телефон' });
+
+    let file = null;
+    if (raw.file_b64) {
+      const type = String(raw.file_type || '').toLowerCase();
+      if (ALLOWED_FILES.indexOf(type) === -1) return json_({ ok: false, error: 'Можно прикрепить PDF или изображение' });
+      if (raw.file_b64.length > MAX_FILE_MB * 1024 * 1024 * 1.37) return json_({ ok: false, error: 'Файл больше ' + MAX_FILE_MB + ' МБ' });
+      file = {
+        bytes: Utilities.base64Decode(raw.file_b64),
+        type: type,
+        name: clean_(raw.file_name, 80).replace(/[^\wА-Яа-яЁё.\- ]+/g, '_') || 'plan'
+      };
+    }
 
     const cache = CacheService.getScriptCache();
     const sent = Number(cache.get('leads-minute') || 0);
@@ -33,12 +55,8 @@ function doPost(e) {
       disable_web_page_preview: true
     });
 
-    if (p.file_b64 && p.file_name) {
-      const blob = Utilities.newBlob(
-        Utilities.base64Decode(p.file_b64),
-        p.file_type || 'application/octet-stream',
-        p.file_name
-      );
+    if (file) {
+      const blob = Utilities.newBlob(file.bytes, file.type, file.name);
       telegram_(token, 'sendDocument', {
         chat_id: chatId,
         document: blob,
@@ -85,7 +103,7 @@ function findChatId() {
 function testSend() {
   const out = doPost({ parameter: {
     topic: 'Тестовая заявка из редактора скрипта',
-    name: 'Проверка', phone: '+7 (000) 000-00-00',
+    name: 'Проверка', phone: '+7 (916) 123-45-67',
     category: 'Кухни', note: 'Если вы видите это сообщение — всё настроено.'
   } });
   console.log(out.getContent());
@@ -127,11 +145,20 @@ function leadText_(p) {
   const rows = [
     ['Имя', p.name], ['Телефон', p.phone], ['Интересует', p.category], ['Комментарий', p.note]
   ].filter(function (r) { return r[1] && String(r[1]).trim(); })
-   .map(function (r) { return '<b>' + r[0] + ':</b> ' + esc_(String(r[1]).trim()).slice(0, 1500); });
+   .map(function (r) { return '<b>' + r[0] + ':</b> ' + esc_(r[1]); });
 
   const when = Utilities.formatDate(new Date(), 'Europe/Moscow', 'dd.MM, HH:mm');
   return '<b>Новая заявка · FAM</b>\n' + esc_(p.topic || 'Заявка с сайта') + '\n\n' +
     rows.join('\n') + '\n\n<i>' + when + ' МСК</i>';
+}
+
+// убирает управляющие символы, сжимает пробелы, режет по длине
+function clean_(v, max) {
+  return String(v == null ? '' : v)
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F\u200B-\u200F\u202A-\u202E\u2066-\u2069]/g, '')
+    .replace(/[ \t]+/g, ' ')
+    .trim()
+    .slice(0, max);
 }
 
 function esc_(s) {

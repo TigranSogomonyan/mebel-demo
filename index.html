@@ -6,13 +6,11 @@
 <title>FAM — мебель на заказ. Примеры работ</title>
 <meta name="description" content="Салон мебели на заказ FAM: кухни, гардеробные, гостиные, спальни, детские, мягкая мебель. Примеры выполненных работ, материалы и фурнитура. Бесплатный замер и расчёт.">
 <meta name="theme-color" content="#17150F">
+<meta name="referrer" content="no-referrer">
 <meta property="og:title" content="FAM — мебель на заказ для семьи">
 <meta property="og:description" content="Примеры работ, материалы, фурнитура. Замер и расчёт бесплатно.">
 <meta property="og:type" content="website">
 <link rel="icon" href="img/ui/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -337,12 +335,12 @@
     <form class="form" id="mainForm" novalidate data-form-topic="Заявка с главной страницы">
       <div class="field">
         <label for="f-name">Как к вам обращаться</label>
-        <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Имя" required>
+        <input id="f-name" name="name" type="text" maxlength="80" autocomplete="name" placeholder="Имя" required>
         <span class="field__err" data-err></span>
       </div>
       <div class="field">
         <label for="f-phone">Телефон</label>
-        <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+        <input id="f-phone" name="phone" type="tel" maxlength="20" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
         <span class="field__err" data-err></span>
       </div>
       <div class="field">
@@ -351,10 +349,10 @@
       </div>
       <div class="field">
         <label for="f-note">Комментарий</label>
-        <textarea id="f-note" name="note" rows="2" placeholder="Размеры помещения, сроки, пожелания"></textarea>
+        <textarea id="f-note" name="note" maxlength="1000" rows="2" placeholder="Размеры помещения, сроки, пожелания"></textarea>
       </div>
       <label class="check">
-        <input type="checkbox" name="agree" required checked>
+        <input type="checkbox" name="agree" required>
         <span>Согласен с <a href="#popup:privacy" class="js-popup">политикой обработки данных</a></span>
       </label>
       <button class="btn btn--solid btn--block" type="submit">Отправить заявку</button>
@@ -386,14 +384,18 @@
           <span><a class="ln" href="tel:+79779393807">+7 (977) 939-38-07</a><i>Эрик</i></span>
         </dd></div>
         <div><dt>Почта</dt><dd><a class="ln" href="mailto:fam.furniture@mail.ru">fam.furniture@mail.ru</a></dd></div>
-        <div><dt>Мессенджеры</dt><dd><a class="ln" href="https://t.me/family_furnituremsk" target="_blank" rel="noopener">Telegram</a> · <a class="ln" href="https://wa.me/79779393807" target="_blank" rel="noopener">WhatsApp</a></dd></div>
-        <div><dt>Instagram</dt><dd><a class="ln" href="https://instagram.com/fam_furniture" target="_blank" rel="noopener">@fam_furniture</a></dd></div>
+        <div><dt>Мессенджеры</dt><dd><a class="ln" href="https://t.me/family_furnituremsk" target="_blank" rel="noopener noreferrer">Telegram</a> · <a class="ln" href="https://wa.me/79779393807" target="_blank" rel="noopener noreferrer">WhatsApp</a></dd></div>
+        <div><dt>Instagram</dt><dd><a class="ln" href="https://instagram.com/fam_furniture" target="_blank" rel="noopener noreferrer">@fam_furniture</a></dd></div>
       </dl>
       <div class="contacts__map" id="map">
-        <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2014&amp;z=16" title="Салон FAM на Яндекс Картах: Москва, ул. Покровская, 14" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-facade">
+          <span class="mono-label">Схема проезда</span>
+          <p>Карта загружается с сервиса Яндекс Карты только по вашему нажатию — до этого сайт не передаёт Яндексу никаких данных.</p>
+          <button class="btn btn--line" type="button" data-map-src="https://yandex.ru/map-widget/v1/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2014&amp;z=16">Показать карту</button>
+        </div>
         <div class="map-bar">
           <span class="mono-label">Москва, ул. Покровская, 14</span>
-          <a class="btn btn--solid" href="https://yandex.ru/maps/?rtext=~%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2014&amp;rtt=auto" target="_blank" rel="noopener">Построить маршрут</a>
+          <a class="btn btn--solid" href="https://yandex.ru/maps/?rtext=~%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2014&amp;rtt=auto" target="_blank" rel="noopener noreferrer">Построить маршрут</a>
         </div>
       </div>
     </div>
@@ -424,7 +426,7 @@
       <a class="ln" href="tel:+79689491617">+7 (968) 949-16-17</a>
       <a class="ln" href="tel:+79779393807">+7 (977) 939-38-07</a>
       <a class="ln" href="mailto:fam.furniture@mail.ru">fam.furniture@mail.ru</a>
-      <a class="ln" href="https://instagram.com/fam_furniture" target="_blank" rel="noopener">@fam_furniture</a>
+      <a class="ln" href="https://instagram.com/fam_furniture" target="_blank" rel="noopener noreferrer">@fam_furniture</a>
       <span>Москва, ул. Покровская, 14</span>
       <span>Ежедневно 10:00 — 21:00</span>
     </div>
@@ -437,10 +439,10 @@
 
 <!-- ————— БЫСТРАЯ СВЯЗЬ ————— -->
 <div class="quick">
-  <a class="quick__btn quick__btn--tg" href="https://t.me/family_furnituremsk" target="_blank" rel="noopener" aria-label="Написать в Telegram">
+  <a class="quick__btn quick__btn--tg" href="https://t.me/family_furnituremsk" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">
     <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.9 19c-.2 1-.8 1.2-1.7.8l-4.6-3.4-2.2 2.1c-.3.3-.5.5-1 .5l.3-4.7L18.3 6c.4-.3-.1-.5-.6-.2L7.2 12.4l-4.6-1.4c-1-.3-1-1 .2-1.5l18-6.9c.8-.3 1.5.2 1.1 1.7z"/></svg>
   </a>
-  <a class="quick__btn quick__btn--wa" href="https://wa.me/79779393807" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+  <a class="quick__btn quick__btn--wa" href="https://wa.me/79779393807" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
     <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9-.5-.4-.6-.4h-.5a1 1 0 0 0-.7.3A2.9 2.9 0 0 0 6.7 11a5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.6 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"/></svg>
   </a>
   <button class="quick__btn quick__btn--call js-popup" data-popup="popup:order" data-form-topic="Обратный звонок" aria-label="Заказать звонок">
@@ -469,12 +471,12 @@
       <form class="form" id="orderForm" novalidate data-form-topic="Заявка на бесплатный замер">
         <div class="field">
           <label for="o-name">Имя</label>
-          <input id="o-name" name="name" type="text" autocomplete="name" placeholder="Имя" required>
+          <input id="o-name" name="name" type="text" maxlength="80" autocomplete="name" placeholder="Имя" required>
           <span class="field__err" data-err></span>
         </div>
         <div class="field">
           <label for="o-phone">Телефон</label>
-          <input id="o-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+          <input id="o-phone" name="phone" type="tel" maxlength="20" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
           <span class="field__err" data-err></span>
         </div>
         <div class="field">
@@ -483,10 +485,10 @@
         </div>
         <div class="field">
           <label for="o-note">Комментарий</label>
-          <textarea id="o-note" name="note" rows="2" placeholder="Адрес, удобное время, пожелания"></textarea>
+          <textarea id="o-note" name="note" maxlength="1000" rows="2" placeholder="Адрес, удобное время, пожелания"></textarea>
         </div>
         <label class="check">
-          <input type="checkbox" name="agree" required checked>
+          <input type="checkbox" name="agree" required>
           <span>Согласен с <a href="#popup:privacy" class="js-popup">политикой обработки данных</a></span>
         </label>
         <button class="btn btn--solid btn--block" type="submit">Отправить</button>
@@ -504,20 +506,20 @@
       <form class="form" id="planForm" novalidate data-form-topic="Оценка по плану квартиры">
         <div class="field">
           <label for="p-name">Имя</label>
-          <input id="p-name" name="name" type="text" placeholder="Имя" required>
+          <input id="p-name" name="name" type="text" maxlength="80" placeholder="Имя" required>
           <span class="field__err" data-err></span>
         </div>
         <div class="field">
           <label for="p-phone">Телефон или мессенджер</label>
-          <input id="p-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required>
+          <input id="p-phone" name="phone" type="tel" maxlength="20" inputmode="tel" placeholder="+7 (___) ___-__-__" required>
           <span class="field__err" data-err></span>
         </div>
         <div class="field">
           <label for="p-file">План помещения</label>
-          <input id="p-file" name="plan" type="file" accept="image/*,.pdf">
+          <input id="p-file" name="plan" type="file" accept="application/pdf,image/jpeg,image/png,image/webp,image/heic,image/heif">
         </div>
         <label class="check">
-          <input type="checkbox" name="agree" required checked>
+          <input type="checkbox" name="agree" required>
           <span>Согласен с <a href="#popup:privacy" class="js-popup">политикой обработки данных</a></span>
         </label>
         <button class="btn btn--solid btn--block" type="submit">Отправить план</button>
@@ -533,7 +535,7 @@
       <h2 class="popup__title" id="thanks-title">Принято</h2>
       <p class="popup__lead" id="thanksText">Спасибо! Свяжемся с вами в течение того же дня.</p>
       <div class="popup__row">
-        <a class="btn btn--line" href="https://t.me/family_furnituremsk" target="_blank" rel="noopener">Написать в Telegram</a>
+        <a class="btn btn--line" href="https://t.me/family_furnituremsk" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
         <a class="btn btn--line" href="#catalog" data-close>Вернуться к каталогу</a>
       </div>
     </div>
@@ -550,8 +552,8 @@
         <div><dt>Салон</dt><dd>Москва, ул. Покровская, 14, ежедневно 10:00–21:00</dd></div>
         <div><dt>Телефоны</dt><dd><a class="ln" href="tel:+79661940333">+7 (966) 194-03-33</a><br><a class="ln" href="tel:+79689491617">+7 (968) 949-16-17</a><br><a class="ln" href="tel:+79779393807">+7 (977) 939-38-07</a></dd></div>
         <div><dt>Почта</dt><dd><a class="ln" href="mailto:fam.furniture@mail.ru">fam.furniture@mail.ru</a></dd></div>
-        <div><dt>Мессенджеры</dt><dd><a class="ln" href="https://t.me/family_furnituremsk" target="_blank" rel="noopener">Telegram</a> · <a class="ln" href="https://wa.me/79779393807" target="_blank" rel="noopener">WhatsApp</a></dd></div>
-        <div><dt>Instagram</dt><dd><a class="ln" href="https://instagram.com/fam_furniture" target="_blank" rel="noopener">@fam_furniture</a></dd></div>
+        <div><dt>Мессенджеры</dt><dd><a class="ln" href="https://t.me/family_furnituremsk" target="_blank" rel="noopener noreferrer">Telegram</a> · <a class="ln" href="https://wa.me/79779393807" target="_blank" rel="noopener noreferrer">WhatsApp</a></dd></div>
+        <div><dt>Instagram</dt><dd><a class="ln" href="https://instagram.com/fam_furniture" target="_blank" rel="noopener noreferrer">@fam_furniture</a></dd></div>
       </dl>
       <div class="popup__row">
         <a class="btn btn--solid js-popup" href="#popup:order" data-form-topic="Заявка из инфоблока">Записаться на замер</a>
